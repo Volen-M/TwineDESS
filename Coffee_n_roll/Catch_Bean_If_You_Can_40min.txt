@@ -9639,7 +9639,7 @@ En quittant la salle je fais un high five au le gardien pendant que celui-ci man
 		&lt;img src=&quot;./Images/Bkgd_Musee.png&quot; class=&quot;Bkgd_img&quot;&gt;
 	&lt;&lt;/if&gt;&gt;
   &lt;/div&gt;
-  &lt;div class=&quot;timer&quot;&gt;1200 sec&lt;/div&gt;
+  &lt;div class=&quot;timer&quot;&gt;2400 sec&lt;/div&gt;
   &lt;div class=&quot;menu&quot;&gt;&lt;&lt;if setup.tealvl is 0&gt;&gt;&lt;img src=&quot;./Images/Tea0.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 1&gt;&gt;&lt;img src=&quot;./Images/Tea1.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 2&gt;&gt;&lt;img src=&quot;./Images/Tea2.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 3&gt;&gt;&lt;img src=&quot;./Images/Tea3.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 4&gt;&gt;&lt;img src=&quot;./Images/Tea4.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if setup.coffeelvl is 0&gt;&gt;&lt;img src=&quot;./Images/Coffee0.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 1&gt;&gt;&lt;img src=&quot;./Images/Coffee1.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 2&gt;&gt;&lt;img src=&quot;./Images/Coffee2.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 3&gt;&gt;&lt;img src=&quot;./Images/Coffee3.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 4&gt;&gt;&lt;img src=&quot;./Images/Coffee4.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;link [img[./Images/Button.png][On with the story]]&gt;&gt;&lt;&lt;goto &quot;EndManager&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/div&gt;
   &lt;div class=&quot;C1&quot;&gt;&lt;&lt;if setup.coffeelvl is 0&gt;&gt;
 			&lt;&lt;if setup.tealvl is 0&gt;&gt;
@@ -9747,7 +9747,7 @@ En quittant la salle je fais un high five au le gardien pendant que celui-ci man
 		&lt;img src=&quot;./Images/Bkgd_Musee.png&quot; class=&quot;Bkgd_img&quot;&gt;
 	&lt;&lt;/if&gt;&gt;
   &lt;/div&gt;
-  &lt;div class=&quot;timer&quot;&gt;1200 sec&lt;/div&gt;
+  &lt;div class=&quot;timer&quot;&gt;2400 sec&lt;/div&gt;
   &lt;div class=&quot;menu&quot;&gt;&lt;&lt;if setup.tealvl is 0&gt;&gt;&lt;img src=&quot;./Images/Tea0.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 1&gt;&gt;&lt;img src=&quot;./Images/Tea1.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 2&gt;&gt;&lt;img src=&quot;./Images/Tea2.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 3&gt;&gt;&lt;img src=&quot;./Images/Tea3.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 4&gt;&gt;&lt;img src=&quot;./Images/Tea4.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if setup.coffeelvl is 0&gt;&gt;&lt;img src=&quot;./Images/Coffee0.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 1&gt;&gt;&lt;img src=&quot;./Images/Coffee1.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 2&gt;&gt;&lt;img src=&quot;./Images/Coffee2.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 3&gt;&gt;&lt;img src=&quot;./Images/Coffee3.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 4&gt;&gt;&lt;img src=&quot;./Images/Coffee4.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;link [img[./Images/Button.png][On with the story]]&gt;&gt;&lt;&lt;goto &quot;EndManager&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/div&gt;
   &lt;div class=&quot;C1&quot;&gt;&lt;&lt;if setup.coffeelvl is 0&gt;&gt;
 			&lt;&lt;if setup.tealvl is 0&gt;&gt;
@@ -9854,7 +9854,7 @@ En quittant la salle je fais un high five au le gardien pendant que celui-ci man
 		&lt;img src=&quot;./Images/Bkgd_Musee.png&quot; class=&quot;Bkgd_img&quot;&gt;
 	&lt;&lt;/if&gt;&gt;
   &lt;/div&gt;
-  &lt;div class=&quot;timer&quot;&gt;1200 sec&lt;/div&gt;
+  &lt;div class=&quot;timer&quot;&gt;2400 sec&lt;/div&gt;
   &lt;div class=&quot;menu&quot;&gt;&lt;&lt;if setup.tealvl is 0&gt;&gt;&lt;img src=&quot;./Images/Tea0.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 1&gt;&gt;&lt;img src=&quot;./Images/Tea1.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 2&gt;&gt;&lt;img src=&quot;./Images/Tea2.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 3&gt;&gt;&lt;img src=&quot;./Images/Tea3.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 4&gt;&gt;&lt;img src=&quot;./Images/Tea4.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if setup.coffeelvl is 0&gt;&gt;&lt;img src=&quot;./Images/Coffee0.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 1&gt;&gt;&lt;img src=&quot;./Images/Coffee1.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 2&gt;&gt;&lt;img src=&quot;./Images/Coffee2.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 3&gt;&gt;&lt;img src=&quot;./Images/Coffee3.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 4&gt;&gt;&lt;img src=&quot;./Images/Coffee4.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;link [img[./Images/Button.png][On with the story]]&gt;&gt;&lt;&lt;goto &quot;EndManager&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/div&gt;
   &lt;div class=&quot;C1&quot;&gt;&lt;&lt;if setup.coffeelvl is 0&gt;&gt;
 			&lt;&lt;if setup.tealvl is 0&gt;&gt;
@@ -9960,7 +9960,7 @@ En quittant la salle je fais un high five au le gardien pendant que celui-ci man
 		&lt;img src=&quot;./Images/Bkgd_Musee.png&quot; class=&quot;Bkgd_img&quot;&gt;
 	&lt;&lt;/if&gt;&gt;
   &lt;/div&gt;
-  &lt;div class=&quot;timer&quot;&gt;1200 sec&lt;/div&gt;
+  &lt;div class=&quot;timer&quot;&gt;2400 sec&lt;/div&gt;
   &lt;div class=&quot;menu&quot;&gt;&lt;&lt;if setup.tealvl is 0&gt;&gt;&lt;img src=&quot;./Images/Tea0.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 1&gt;&gt;&lt;img src=&quot;./Images/Tea1.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 2&gt;&gt;&lt;img src=&quot;./Images/Tea2.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 3&gt;&gt;&lt;img src=&quot;./Images/Tea3.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 4&gt;&gt;&lt;img src=&quot;./Images/Tea4.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if setup.coffeelvl is 0&gt;&gt;&lt;img src=&quot;./Images/Coffee0.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 1&gt;&gt;&lt;img src=&quot;./Images/Coffee1.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 2&gt;&gt;&lt;img src=&quot;./Images/Coffee2.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 3&gt;&gt;&lt;img src=&quot;./Images/Coffee3.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 4&gt;&gt;&lt;img src=&quot;./Images/Coffee4.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;link [img[./Images/Button.png][On with the story]]&gt;&gt;&lt;&lt;goto &quot;EndManager&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/div&gt;
   &lt;div class=&quot;C1&quot;&gt;&lt;&lt;if setup.coffeelvl is 0&gt;&gt;
 			&lt;&lt;if setup.tealvl is 0&gt;&gt;
@@ -10066,7 +10066,7 @@ En quittant la salle je fais un high five au le gardien pendant que celui-ci man
 		&lt;img src=&quot;./Images/Bkgd_Musee.png&quot; class=&quot;Bkgd_img&quot;&gt;
 	&lt;&lt;/if&gt;&gt;
   &lt;/div&gt;
-  &lt;div class=&quot;timer&quot;&gt;1200 sec&lt;/div&gt;
+  &lt;div class=&quot;timer&quot;&gt;2400 sec&lt;/div&gt;
   &lt;div class=&quot;menu&quot;&gt;&lt;&lt;if setup.tealvl is 0&gt;&gt;&lt;img src=&quot;./Images/Tea0.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 1&gt;&gt;&lt;img src=&quot;./Images/Tea1.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 2&gt;&gt;&lt;img src=&quot;./Images/Tea2.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 3&gt;&gt;&lt;img src=&quot;./Images/Tea3.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 4&gt;&gt;&lt;img src=&quot;./Images/Tea4.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if setup.coffeelvl is 0&gt;&gt;&lt;img src=&quot;./Images/Coffee0.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 1&gt;&gt;&lt;img src=&quot;./Images/Coffee1.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 2&gt;&gt;&lt;img src=&quot;./Images/Coffee2.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 3&gt;&gt;&lt;img src=&quot;./Images/Coffee3.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 4&gt;&gt;&lt;img src=&quot;./Images/Coffee4.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;link [img[./Images/Button.png][On with the story]]&gt;&gt;&lt;&lt;goto &quot;EndManager&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/div&gt;
   &lt;div class=&quot;C1&quot;&gt;&lt;&lt;if setup.coffeelvl is 0&gt;&gt;
 			&lt;&lt;if setup.tealvl is 0&gt;&gt;
@@ -10128,7 +10128,7 @@ En quittant la salle je fais un high five au le gardien pendant que celui-ci man
 		&lt;&lt;/if&gt;&gt;
   &lt;/div&gt;
   &lt;div class=&quot;textOpt&quot;&gt;
-&lt;p style=&quot;color:rgb(255, 0, 0)&quot;&gt;Bassiste Garry: Relax ça va bien aller. Notre plus gros show à vie dans la cité de Sodapolis est dans 20 minutes, tu as amplement le temps.&lt;/p&gt;&lt;p style=&quot;color:rgb(235, 235, 235)&quot;&gt;Moi: C&#39;est pas beaucoup de temps Garry.&lt;/p&gt;&lt;p style=&quot;color:rgb(255, 0, 0)&quot;&gt;Garry: Ah non?&lt;/p&gt;
+&lt;p style=&quot;color:rgb(255, 0, 0)&quot;&gt;Bassiste Garry: Relax ça va bien aller. Notre plus gros show à vie dans la cité de Sodapolis est dans 40 minutes, tu as amplement le temps.&lt;/p&gt;&lt;p style=&quot;color:rgb(235, 235, 235)&quot;&gt;Moi: C&#39;est pas beaucoup de temps Garry.&lt;/p&gt;&lt;p style=&quot;color:rgb(255, 0, 0)&quot;&gt;Garry: Ah non?&lt;/p&gt;
 [[&quot;Y-a-t-il un remède?.&quot;|Introduction 5_1][$sec = setup.seconds]]
 	&lt;/div&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="100" name="Introduction 4_2" tags="" position="2388,1122" size="100,100">&lt;&lt;set setup.coffeelvl to 0&gt;&gt;
@@ -10172,7 +10172,7 @@ En quittant la salle je fais un high five au le gardien pendant que celui-ci man
 		&lt;img src=&quot;./Images/Bkgd_Musee.png&quot; class=&quot;Bkgd_img&quot;&gt;
 	&lt;&lt;/if&gt;&gt;
   &lt;/div&gt;
-  &lt;div class=&quot;timer&quot;&gt;1200 sec&lt;/div&gt;
+  &lt;div class=&quot;timer&quot;&gt;2400 sec&lt;/div&gt;
   &lt;div class=&quot;menu&quot;&gt;&lt;&lt;if setup.tealvl is 0&gt;&gt;&lt;img src=&quot;./Images/Tea0.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 1&gt;&gt;&lt;img src=&quot;./Images/Tea1.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 2&gt;&gt;&lt;img src=&quot;./Images/Tea2.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 3&gt;&gt;&lt;img src=&quot;./Images/Tea3.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 4&gt;&gt;&lt;img src=&quot;./Images/Tea4.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if setup.coffeelvl is 0&gt;&gt;&lt;img src=&quot;./Images/Coffee0.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 1&gt;&gt;&lt;img src=&quot;./Images/Coffee1.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 2&gt;&gt;&lt;img src=&quot;./Images/Coffee2.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 3&gt;&gt;&lt;img src=&quot;./Images/Coffee3.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 4&gt;&gt;&lt;img src=&quot;./Images/Coffee4.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;link [img[./Images/Button.png][On with the story]]&gt;&gt;&lt;&lt;goto &quot;EndManager&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/div&gt;
   &lt;div class=&quot;C1&quot;&gt;&lt;&lt;if setup.coffeelvl is 0&gt;&gt;
 			&lt;&lt;if setup.tealvl is 0&gt;&gt;
@@ -10234,7 +10234,7 @@ En quittant la salle je fais un high five au le gardien pendant que celui-ci man
 		&lt;&lt;/if&gt;&gt;
   &lt;/div&gt;
   &lt;div class=&quot;textOpt&quot;&gt;
-&lt;p style=&quot;color:rgb(255, 0, 0)&quot;&gt;Bassiste Garry: Oui oui, tous bien aller. Notre plus gros show à vie dans la cité de Sodapolis est dans 20 minutes, tu as amplement le temps.&lt;/p&gt;&lt;p style=&quot;color:rgb(235, 235, 235)&quot;&gt;Moi: C&#39;est pas beaucoup de temps Garry.&lt;/p&gt;&lt;p style=&quot;color:rgb(255, 0, 0)&quot;&gt;Garry: Ah non?&lt;/p&gt;
+&lt;p style=&quot;color:rgb(255, 0, 0)&quot;&gt;Bassiste Garry: Oui oui, tous bien aller. Notre plus gros show à vie dans la cité de Sodapolis est dans 40 minutes, tu as amplement le temps.&lt;/p&gt;&lt;p style=&quot;color:rgb(235, 235, 235)&quot;&gt;Moi: C&#39;est pas beaucoup de temps Garry.&lt;/p&gt;&lt;p style=&quot;color:rgb(255, 0, 0)&quot;&gt;Garry: Ah non?&lt;/p&gt;
 [[&quot;Y-a-t-il un remède?.&quot;|Introduction 5_1][$sec = setup.seconds]]
 	&lt;/div&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="101" name="Introduction 5_1" tags="" position="2143,1138" size="100,100">&lt;&lt;set setup.coffeelvl to 0&gt;&gt;
@@ -10261,7 +10261,7 @@ En quittant la salle je fais un high five au le gardien pendant que celui-ci man
 &lt;&lt;set setup.MuseeUniforme to false&gt;&gt;
 &lt;&lt;set setup.ArcadeThiefLeft to false&gt;&gt;
 &lt;&lt;set setup.MuseeFragmentInfo to false&gt;&gt;
-&lt;&lt;set $seconds to 1200&gt;&gt;
+&lt;&lt;set $seconds to 2400&gt;&gt;
 &lt;&lt;set setup.seconds to $seconds&gt;&gt;
 &lt;&lt;set setup.GaryTalked to false&gt;&gt;
 &lt;&lt;set $seconds to $sec&gt;&gt;
@@ -10280,7 +10280,7 @@ En quittant la salle je fais un high five au le gardien pendant que celui-ci man
 		&lt;img src=&quot;./Images/Bkgd_Musee.png&quot; class=&quot;Bkgd_img&quot;&gt;
 	&lt;&lt;/if&gt;&gt;
   &lt;/div&gt;
-  &lt;div class=&quot;timer&quot;&gt;1200 sec&lt;/div&gt;
+  &lt;div class=&quot;timer&quot;&gt;2400 sec&lt;/div&gt;
   &lt;div class=&quot;menu&quot;&gt;&lt;&lt;if setup.tealvl is 0&gt;&gt;&lt;img src=&quot;./Images/Tea0.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 1&gt;&gt;&lt;img src=&quot;./Images/Tea1.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 2&gt;&gt;&lt;img src=&quot;./Images/Tea2.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 3&gt;&gt;&lt;img src=&quot;./Images/Tea3.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 4&gt;&gt;&lt;img src=&quot;./Images/Tea4.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if setup.coffeelvl is 0&gt;&gt;&lt;img src=&quot;./Images/Coffee0.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 1&gt;&gt;&lt;img src=&quot;./Images/Coffee1.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 2&gt;&gt;&lt;img src=&quot;./Images/Coffee2.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 3&gt;&gt;&lt;img src=&quot;./Images/Coffee3.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 4&gt;&gt;&lt;img src=&quot;./Images/Coffee4.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;link [img[./Images/Button.png][On with the story]]&gt;&gt;&lt;&lt;goto &quot;EndManager&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/div&gt;
   &lt;div class=&quot;C1&quot;&gt;&lt;&lt;if setup.coffeelvl is 0&gt;&gt;
 			&lt;&lt;if setup.tealvl is 0&gt;&gt;
@@ -10343,7 +10343,7 @@ En quittant la salle je fais un high five au le gardien pendant que celui-ci man
   &lt;/div&gt;
   &lt;div class=&quot;textOpt&quot;&gt;
 &lt;p style=&quot;color:rgb(255, 0, 0)&quot;&gt;Bassiste Garry: Je sais pas, si tu prends des fragments ça devrait te rétablir pour la soirée. Mais on est a Sodapolis pas à... aileurs que Sodapolis. Ici les fragments de cafés sont rares et considérés comme des objets précieux.&lt;/p&gt;&lt;p style=&quot;color:rgb(235, 235, 235)&quot;&gt;Moi: Aide-moi à trouver des fragments Gary je t&#39;en prie.&lt;/p&gt;&lt;p style=&quot;color:rgb(255, 0, 0)&quot;&gt;Café Garry: Oui pas de problème mec je vais....?&lt;/p&gt;Le regard de Gary change soudainement.
-&lt;p style=&quot;color:rgb(255, 0, 0)&quot;&gt;Café Garry: Sais-tu que les étoiles le soir portent des pyjamas?&lt;/p&gt;Café Garry perd à nouveau toute trace de lucidité et redevient... Garry. Il me reste exactement 20 minutes pour trouver tous ses fragments.
+&lt;p style=&quot;color:rgb(255, 0, 0)&quot;&gt;Café Garry: Sais-tu que les étoiles le soir portent des pyjamas?&lt;/p&gt;Café Garry perd à nouveau toute trace de lucidité et redevient... Garry. Il me reste exactement 40 minutes pour trouver tous ses fragments.
 Avant de partir, je fais un calcul mental rapide convertissant des grammes de graines de café en calories, après en kilojoules et finalement en puissance chevaux et je réalise que j&#39;aurais besoin de quatre fragments de café pour un hyper concert de fou. 
 Je mets mes lunettes de soleil, cachant ainsi ma célébrité et commence ma quête.
 [[&quot;Commencer la recherche.&quot;|LogeArtiste_intro][$sec = setup.seconds]]
@@ -12843,7 +12843,7 @@ Je m&#39;approche et relève mes lunettes de soleil pour révéler mon identité
 &lt;&lt;set setup.MuseeFragmentInfo to false&gt;&gt;
 &lt;&lt;set setup.GaryTalked to false&gt;&gt;
 &lt;&lt;set setup.C2 to &quot;HighCoffee&quot;&gt;&gt;
-&lt;&lt;set $seconds to 1200&gt;&gt;
+&lt;&lt;set $seconds to 2400&gt;&gt;
 &lt;&lt;set setup.seconds to $seconds&gt;&gt;
 &lt;&lt;set setup.location to &quot;Loge&quot;&gt;&gt;
 &lt;&lt;set setup.focus to &quot;none&quot;&gt;&gt;
@@ -12862,7 +12862,7 @@ Je m&#39;approche et relève mes lunettes de soleil pour révéler mon identité
 		&lt;img src=&quot;./Images/Bkgd_Musee.png&quot; class=&quot;Bkgd_img&quot;&gt;
 	&lt;&lt;/if&gt;&gt;
   &lt;/div&gt;
-  &lt;div class=&quot;timer&quot;&gt;1200 sec&lt;/div&gt;
+  &lt;div class=&quot;timer&quot;&gt;2400 sec&lt;/div&gt;
   &lt;div class=&quot;menu&quot;&gt;&lt;&lt;if setup.tealvl is 0&gt;&gt;&lt;img src=&quot;./Images/Tea0.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 1&gt;&gt;&lt;img src=&quot;./Images/Tea1.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 2&gt;&gt;&lt;img src=&quot;./Images/Tea2.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 3&gt;&gt;&lt;img src=&quot;./Images/Tea3.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.tealvl is 4&gt;&gt;&lt;img src=&quot;./Images/Tea4.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if setup.coffeelvl is 0&gt;&gt;&lt;img src=&quot;./Images/Coffee0.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 1&gt;&gt;&lt;img src=&quot;./Images/Coffee1.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 2&gt;&gt;&lt;img src=&quot;./Images/Coffee2.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 3&gt;&gt;&lt;img src=&quot;./Images/Coffee3.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;elseif setup.coffeelvl is 4&gt;&gt;&lt;img src=&quot;./Images/Coffee4.png&quot; class=&quot;Knob_img&quot;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;link [img[./Images/Button.png][On with the story]]&gt;&gt;&lt;&lt;goto &quot;EndManager&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/div&gt;
   &lt;div class=&quot;C1&quot;&gt;&lt;&lt;if setup.coffeelvl is 0&gt;&gt;
 			&lt;&lt;if setup.tealvl is 0&gt;&gt;
