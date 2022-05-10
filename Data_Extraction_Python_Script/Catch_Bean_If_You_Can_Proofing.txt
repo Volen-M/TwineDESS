@@ -1,0 +1,2680 @@
+﻿Coffee_n_Roll 
+Introduction 
+<div class="container"> 
+<div class="Background"> 
+<img src="./Images/TitleScreen.png" class="Bkgd_img"> </div> 
+<div class="StartMenu"> 
+[["Commencer"|StartGame]] 
+</div> 
+</div> 
+Loge d'artiste 
+<<set setup.location to "Loge">> 
+<<set setup.C2 to "none">> 
+<<set $seconds to $sec>> 
+<<set setup.pantschecks to 0>> 
+<div class="container"> 
+<div class="Background"><<if setup.location is "Loge">> <img src="./Images/Bkgd_Loge.png" class="Bkgd_img"> 
+<<elseif setup.location is "Bar">> 
+<img src="./Images/Bkgd_Bar.png" class="Bkgd_img"> 
+<<elseif setup.location is "Salle">> 
+<img src="./Images/Bkgd_Salle.png" class="Bkgd_img"> <<elseif setup.location is "Lobby">> 
+<img src="./Images/Bkgd_Lobby.png" class="Bkgd_img"> <<elseif setup.location is "Arcade">> 
+<img src="./Images/Bkgd_Arcade.png" class="Bkgd_img"> <<elseif setup.location is "Musee">> 
+<img src="./Images/Bkgd_Musee.png" class="Bkgd_img"> <</if>> 
+</div> 
+<div class="timer"><span id="countdown">$seconds sec</span> <<silently>> 
+<<repeat 1s>> 
+<<set $seconds to $seconds - 1>> 
+<<if $seconds gt 0>>
+<<replace "#countdown">>$seconds sec<</replace>> 
+<<set setup.seconds to $seconds>> 
+<<else>> 
+<<goto "EndManager">> 
+<<set setup.seconds to $seconds>> 
+<<stop>> 
+<</if>> 
+<</repeat>> 
+<</silently>></div> 
+<div class="menu"><<if setup.tealvl is 0>><img src="./Images/Tea0.png" class="Knob_img"><<elseif setup.tealvl is 1>><img src="./Images/Tea1.png" class="Knob_img"><<elseif setup.tealvl is 2>><img src="./Images/Tea2.png" class="Knob_img"><<elseif setup.tealvl is 3>><img src="./Images/Tea3.png" class="Knob_img"><<elseif setup.tealvl is 4>><img src="./Images/Tea4.png" class="Knob_img"><</if>><<if setup.coffeelvl is 0>><img src="./Images/Coffee0.png" class="Knob_img"><<elseif setup.coffeelvl is 1>> <img src="./Images/Coffee1.png" class="Knob_img"><<elseif setup.coffeelvl is 2>><img src="./Images/Coffee2.png" class="Knob_img"><<elseif setup.coffeelvl is 3>><img src="./Images/Coffee3.png" class="Knob_img"><<elseif setup.coffeelvl is 4>><img src="./Images/Coffee4.png" class="Knob_img"><</if>><<link [img[./Images/Button.png][On with the story]]>><<goto "EndManager">><</link>></div> 
+<div class="C1"><<if setup.coffeelvl is 0>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_0_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_0_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_0_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_0_3.png" class="Char_img"> 
+<<elseif setup.tealvl is 4>> 
+<img src="./Images/Char_Rockstar_0_4.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 1>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_1_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_1_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_1_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>>
+<img src="./Images/Char_Rockstar_1_3.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 2>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_2_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_2_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_2_2.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 3>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_3_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_3_1.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 4>> 
+<img src="./Images/Char_Rockstar_4_0.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="C2"> 
+<<if setup.C2 is "Shifty">> 
+<img src="./Images/Char_Shifty.png" class="Char_img"> 
+<<elseif setup.C2 is "FakeArm">> 
+<img src="./Images/Char_FakeArm.png" class="Char_img"> 
+<<elseif setup.C2 is "FruitPunch">> 
+<img src="./Images/Char_FruitPunch.png" class="Char_img"> 
+<<elseif setup.C2 is "HighCoffee">> 
+<img src="./Images/Char_HighCoffee.png" class="Char_img"> 
+<<elseif setup.C2 is "JuiceBoxGirl">> 
+<img src="./Images/Char_JuiceBoxGirl.png" class="Char_img"> 
+<<elseif setup.C2 is "Security">> 
+<img src="./Images/Char_Security.png" class="Char_img"> 
+<<elseif setup.C2 is "SuitcaseMafia">> 
+<img src="./Images/Char_SuitcaseMafia.png" class="Char_img"> 
+<<elseif setup.C2 is "BarWoman">> 
+<img src="./Images/Char_BarWoman.png" class="Char_img"> 
+<</if>> 
+</div>
+<div class="textOpt"> 
+Ma loge d'artiste est dans son état de désordre habituel. Tous les autres membres du groupe sont parties visiter la ville excepté Garry qui joue avec des batteries invisibles probablement après une nuit blanche. Allongée à côté de lui est assise une jeune adulte punch au fruit qui joue à Human Crush sur son smartphone d'un air un peu ennuyé. 
+Je vois qu'elle a poussé mes sweatpants de voyage à terre avant de s'étendre. 
+<<if setup.haveFakeArm is true>> 
+J'ai sur mon bureau le bras glaço-mécanique Wondasahi du vieux vin... 
+C'est un nouveau bas pour moi je crois. 
+[["Extraire le fragment de café du bras"|Arm_Extract][$sec = setup.seconds]] 
+<</if>><<if setup.focus is "FirstSongUnlockto">> 
+Dans le coin se trouve le coffre contenant les paroles de ma première chanson, je ne l'ai pas ouvert depuis des années et je l'apporte avec moi simplement par habitude. J'ai même oublié la combinaison à trois chiffres. 
+<</if>> 
+Sur le babillard se trouve quatre photos 
+[["Observer Photo 1"|Loge_Photo1][$sec = setup.seconds]] 
+[["Observer Photo 2"|Loge_Photo2][$sec = setup.seconds]] 
+[["Observer Photo 3"|Loge_Photo3][$sec = setup.seconds]] 
+[["Observer Photo 4"|Loge_Photo4][$sec = setup.seconds]] 
+<<if setup.FirstSongUnlock is false>> 
+[["Essayer d'ouvrir coffre"|Loge_CoffreEvent][$sec = setup.seconds]]<</if>><<if setup.gottenboost is false>> 
+[["Regarder dans les poches du pantalon"|Pants_1][$sec = setup.seconds]] 
+<</if>> 
+[["Parler à Garry"|Loge d'artiste_Garry][$sec = setup.seconds]] 
+[["Parler à la jeune punch au fruit"|Loge d'artiste_Punch][$sec = setup.seconds]] [["Aller dans la salle de concert"|Salle de Concert][$sec = setup.seconds]] 
+</div> 
+</div> 
+Loge d'artiste_Garry 
+<<set $seconds to $sec>> 
+<<set setup.C2 to "HighCoffee">> 
+<div class="container"> 
+<div class="Background"><<if setup.location is "Loge">> 
+<img src="./Images/Bkgd_Loge.png" class="Bkgd_img"> 
+<<elseif setup.location is "Bar">>
+<img src="./Images/Bkgd_Bar.png" class="Bkgd_img"> 
+<<elseif setup.location is "Salle">> 
+<img src="./Images/Bkgd_Salle.png" class="Bkgd_img"> 
+<<elseif setup.location is "Lobby">> 
+<img src="./Images/Bkgd_Lobby.png" class="Bkgd_img"> 
+<<elseif setup.location is "Arcade">> 
+<img src="./Images/Bkgd_Arcade.png" class="Bkgd_img"> 
+<<elseif setup.location is "Musee">> 
+<img src="./Images/Bkgd_Musee.png" class="Bkgd_img"> 
+<</if>> 
+</div> 
+<div class="timer"><span id="countdown">$seconds sec</span> 
+<<silently>> 
+<<repeat 1s>> 
+<<set $seconds to $seconds - 1>> 
+<<if $seconds gt 0>> 
+<<replace "#countdown">>$seconds sec<</replace>> 
+<<set setup.seconds to $seconds>> 
+<<else>> 
+<<goto "EndManager">> 
+<<set setup.seconds to $seconds>> 
+<<stop>> 
+<</if>> 
+<</repeat>> 
+<</silently>></div> 
+<div class="menu"><<if setup.tealvl is 0>><img src="./Images/Tea0.png" class="Knob_img"><<elseif setup.tealvl is 1>><img src="./Images/Tea1.png" class="Knob_img"><<elseif setup.tealvl is 2>><img src="./Images/Tea2.png" class="Knob_img"><<elseif setup.tealvl is 3>><img src="./Images/Tea3.png" class="Knob_img"><<elseif setup.tealvl is 4>><img src="./Images/Tea4.png" class="Knob_img"><</if>><<if setup.coffeelvl is 0>><img src="./Images/Coffee0.png" class="Knob_img"><<elseif setup.coffeelvl is 1>> <img src="./Images/Coffee1.png" class="Knob_img"><<elseif setup.coffeelvl is 2>><img src="./Images/Coffee2.png" class="Knob_img"><<elseif setup.coffeelvl is 3>><img src="./Images/Coffee3.png" class="Knob_img"><<elseif setup.coffeelvl is 4>><img src="./Images/Coffee4.png" class="Knob_img"><</if>><<link [img[./Images/Button.png][On with the story]]>><<goto "EndManager">><</link>></div> 
+<div class="C1"><<if setup.coffeelvl is 0>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_0_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>>
+<img src="./Images/Char_Rockstar_0_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_0_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_0_3.png" class="Char_img"> 
+<<elseif setup.tealvl is 4>> 
+<img src="./Images/Char_Rockstar_0_4.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 1>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_1_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_1_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_1_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_1_3.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 2>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_2_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_2_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_2_2.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 3>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_3_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_3_1.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 4>> 
+<img src="./Images/Char_Rockstar_4_0.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="C2"> 
+<<if setup.C2 is "Shifty">> 
+<img src="./Images/Char_Shifty.png" class="Char_img">
+<<elseif setup.C2 is "FakeArm">> 
+<img src="./Images/Char_FakeArm.png" class="Char_img"> 
+<<elseif setup.C2 is "FruitPunch">> 
+<img src="./Images/Char_FruitPunch.png" class="Char_img"> 
+<<elseif setup.C2 is "HighCoffee">> 
+<img src="./Images/Char_HighCoffee.png" class="Char_img"> 
+<<elseif setup.C2 is "JuiceBoxGirl">> 
+<img src="./Images/Char_JuiceBoxGirl.png" class="Char_img"> 
+<<elseif setup.C2 is "Security">> 
+<img src="./Images/Char_Security.png" class="Char_img"> 
+<<elseif setup.C2 is "SuitcaseMafia">> 
+<img src="./Images/Char_SuitcaseMafia.png" class="Char_img"> 
+<<elseif setup.C2 is "BarWoman">> 
+<img src="./Images/Char_BarWoman.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="textOpt"> 
+Je m'approche de Garry, ce dernier continue de jouer de la batterie sans me regarder. <<if setup.FirstSongUnlock is false>> 
+[["Rappelle-moi le code du coffre."|Loge d'artiste_Garry_CoffreHelp][$sec = setup.seconds]] <</if>><<if setup.GarryDialogue is 0>> 
+[["Donc peux-tu m'aider?"|Loge d'artiste_Garry_NeedHelp1][$sec = setup.seconds]] <</if>><<if setup.GarryDialogue is 1>> 
+[["J'ai besoin de ton aide"|Loge d'artiste_Garry_NeedHelp2][$sec = setup.seconds]] <</if>><<if setup.GarryDialogue is 2>> 
+[["J'ai vraiment besoin de ton aide."|Loge d'artiste_Garry_NeedHelp3][$sec = setup.seconds]] <</if>> 
+[["Ne pas lui parler"|Loge d'artiste][$sec = setup.seconds]] 
+</div> 
+</div>A 
+Loge d'artiste_Punch 
+<<set $seconds to $sec>> 
+<<set setup.C2 to "FruitPunch">> 
+<div class="container"> 
+<div class="Background"><<if setup.location is "Loge">> 
+<img src="./Images/Bkgd_Loge.png" class="Bkgd_img"> 
+<<elseif setup.location is "Bar">>
+<img src="./Images/Bkgd_Bar.png" class="Bkgd_img"> 
+<<elseif setup.location is "Salle">> 
+<img src="./Images/Bkgd_Salle.png" class="Bkgd_img"> 
+<<elseif setup.location is "Lobby">> 
+<img src="./Images/Bkgd_Lobby.png" class="Bkgd_img"> 
+<<elseif setup.location is "Arcade">> 
+<img src="./Images/Bkgd_Arcade.png" class="Bkgd_img"> 
+<<elseif setup.location is "Musee">> 
+<img src="./Images/Bkgd_Musee.png" class="Bkgd_img"> 
+<</if>> 
+</div> 
+<div class="timer"><span id="countdown">$seconds sec</span> 
+<<silently>> 
+<<repeat 1s>> 
+<<set $seconds to $seconds - 1>> 
+<<if $seconds gt 0>> 
+<<replace "#countdown">>$seconds sec<</replace>> 
+<<set setup.seconds to $seconds>> 
+<<else>> 
+<<goto "EndManager">> 
+<<set setup.seconds to $seconds>> 
+<<stop>> 
+<</if>> 
+<</repeat>> 
+<</silently>></div> 
+<div class="menu"><<if setup.tealvl is 0>><img src="./Images/Tea0.png" class="Knob_img"><<elseif setup.tealvl is 1>><img src="./Images/Tea1.png" class="Knob_img"><<elseif setup.tealvl is 2>><img src="./Images/Tea2.png" class="Knob_img"><<elseif setup.tealvl is 3>><img src="./Images/Tea3.png" class="Knob_img"><<elseif setup.tealvl is 4>><img src="./Images/Tea4.png" class="Knob_img"><</if>><<if setup.coffeelvl is 0>><img src="./Images/Coffee0.png" class="Knob_img"><<elseif setup.coffeelvl is 1>> <img src="./Images/Coffee1.png" class="Knob_img"><<elseif setup.coffeelvl is 2>><img src="./Images/Coffee2.png" class="Knob_img"><<elseif setup.coffeelvl is 3>><img src="./Images/Coffee3.png" class="Knob_img"><<elseif setup.coffeelvl is 4>><img src="./Images/Coffee4.png" class="Knob_img"><</if>><<link [img[./Images/Button.png][On with the story]]>><<goto "EndManager">><</link>></div> 
+<div class="C1"><<if setup.coffeelvl is 0>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_0_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>>
+<img src="./Images/Char_Rockstar_0_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_0_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_0_3.png" class="Char_img"> 
+<<elseif setup.tealvl is 4>> 
+<img src="./Images/Char_Rockstar_0_4.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 1>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_1_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_1_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_1_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_1_3.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 2>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_2_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_2_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_2_2.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 3>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_3_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_3_1.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 4>> 
+<img src="./Images/Char_Rockstar_4_0.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="C2"> 
+<<if setup.C2 is "Shifty">> 
+<img src="./Images/Char_Shifty.png" class="Char_img">
+<<elseif setup.C2 is "FakeArm">> 
+<img src="./Images/Char_FakeArm.png" class="Char_img"> 
+<<elseif setup.C2 is "FruitPunch">> 
+<img src="./Images/Char_FruitPunch.png" class="Char_img"> 
+<<elseif setup.C2 is "HighCoffee">> 
+<img src="./Images/Char_HighCoffee.png" class="Char_img"> 
+<<elseif setup.C2 is "JuiceBoxGirl">> 
+<img src="./Images/Char_JuiceBoxGirl.png" class="Char_img"> 
+<<elseif setup.C2 is "Security">> 
+<img src="./Images/Char_Security.png" class="Char_img"> 
+<<elseif setup.C2 is "SuitcaseMafia">> 
+<img src="./Images/Char_SuitcaseMafia.png" class="Char_img"> 
+<<elseif setup.C2 is "BarWoman">> 
+<img src="./Images/Char_BarWoman.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="textOpt"> 
+Je m'approche de la jeune punch au fruit. Elle est au milieu d'une scéance de Human Crush où elle fait d'étranges combinaisons de figures roses et brunes sur son cell. 
+<<if setup.PunchGirl_SandyInfo is 1>> 
+[["Elle est où ton amie?"|Punch_SandyAmi1][$sec = setup.seconds]] 
+<</if>><<if setup.PunchGirl_SandyInfo is 2>> 
+[["Rappelle-moi elle est où ton amie?"|SandyPunch_Am21][$sec = setup.seconds]] <</if>><<if setup.PunchGirl is 0>> 
+[["Tu es une amie de Garry?"|Punch_Ami1][$sec = setup.seconds]] 
+<</if>><<if setup.PunchGirl is 1>> 
+[["Alors tu fais quoi encore ici?"|Punch_Ami2][$sec = setup.seconds]] 
+<</if>><<if setup.PunchGirlInfo is false>> 
+[["Qu'est-ce que tu peux me dire sur Sodapolis?"|Punch_InfoSoda][$sec = setup.seconds]] <</if>><<if setup.PunchGirlInfo is true>> 
+[["Qu'est-ce que tu disais sur Sodapolis déjà?"|Punch_RepeatInfoSoda][$sec = setup.seconds]] <</if>> 
+[["Ne pas lui parler"|Loge d'artiste][$sec = setup.seconds]] 
+</div> 
+</div> 
+Salle de Concert
+<<set setup.location to "Salle">> 
+<<set setup.C2 to "none">> 
+<<set $seconds to $sec>> 
+<div class="container"> 
+<div class="Background"><<if setup.location is "Loge">> 
+<img src="./Images/Bkgd_Loge.png" class="Bkgd_img"> 
+<<elseif setup.location is "Bar">> 
+<img src="./Images/Bkgd_Bar.png" class="Bkgd_img"> 
+<<elseif setup.location is "Salle">> 
+<img src="./Images/Bkgd_Salle.png" class="Bkgd_img"> 
+<<elseif setup.location is "Lobby">> 
+<img src="./Images/Bkgd_Lobby.png" class="Bkgd_img"> 
+<<elseif setup.location is "Arcade">> 
+<img src="./Images/Bkgd_Arcade.png" class="Bkgd_img"> 
+<<elseif setup.location is "Musee">> 
+<img src="./Images/Bkgd_Musee.png" class="Bkgd_img"> 
+<</if>> 
+</div> 
+<div class="timer"><span id="countdown">$seconds sec</span> 
+<<silently>> 
+<<repeat 1s>> 
+<<set $seconds to $seconds - 1>> 
+<<if $seconds gt 0>> 
+<<replace "#countdown">>$seconds sec<</replace>> 
+<<set setup.seconds to $seconds>> 
+<<else>> 
+<<goto "EndManager">> 
+<<set setup.seconds to $seconds>> 
+<<stop>> 
+<</if>> 
+<</repeat>> 
+<</silently>></div> 
+<div class="menu"><<if setup.tealvl is 0>><img src="./Images/Tea0.png" class="Knob_img"><<elseif setup.tealvl is 1>><img src="./Images/Tea1.png" class="Knob_img"><<elseif setup.tealvl is 2>><img src="./Images/Tea2.png" class="Knob_img"><<elseif setup.tealvl is 3>><img src="./Images/Tea3.png" class="Knob_img"><<elseif setup.tealvl is 4>><img src="./Images/Tea4.png" class="Knob_img"><</if>><<if setup.coffeelvl is 0>><img src="./Images/Coffee0.png" class="Knob_img"><<elseif setup.coffeelvl is 1>> <img src="./Images/Coffee1.png" class="Knob_img"><<elseif setup.coffeelvl is 2>><img src="./Images/Coffee2.png" class="Knob_img"><<elseif setup.coffeelvl is 3>><img
+src="./Images/Coffee3.png" class="Knob_img"><<elseif setup.coffeelvl is 4>><img src="./Images/Coffee4.png" class="Knob_img"><</if>><<link [img[./Images/Button.png][On with the story]]>><<goto "EndManager">><</link>></div> 
+<div class="C1"><<if setup.coffeelvl is 0>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_0_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_0_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_0_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_0_3.png" class="Char_img"> 
+<<elseif setup.tealvl is 4>> 
+<img src="./Images/Char_Rockstar_0_4.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 1>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_1_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_1_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_1_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_1_3.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 2>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_2_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_2_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_2_2.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 3>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_3_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_3_1.png" class="Char_img"> 
+<</if>>
+<<elseif setup.coffeelvl is 4>> 
+<img src="./Images/Char_Rockstar_4_0.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="C2"> 
+<<if setup.C2 is "Shifty">> 
+<img src="./Images/Char_Shifty.png" class="Char_img"> 
+<<elseif setup.C2 is "FakeArm">> 
+<img src="./Images/Char_FakeArm.png" class="Char_img"> 
+<<elseif setup.C2 is "FruitPunch">> 
+<img src="./Images/Char_FruitPunch.png" class="Char_img"> 
+<<elseif setup.C2 is "HighCoffee">> 
+<img src="./Images/Char_HighCoffee.png" class="Char_img"> 
+<<elseif setup.C2 is "JuiceBoxGirl">> 
+<img src="./Images/Char_JuiceBoxGirl.png" class="Char_img"> 
+<<elseif setup.C2 is "Security">> 
+<img src="./Images/Char_Security.png" class="Char_img"> 
+<<elseif setup.C2 is "SuitcaseMafia">> 
+<img src="./Images/Char_SuitcaseMafia.png" class="Char_img"> 
+<<elseif setup.C2 is "BarWoman">> 
+<img src="./Images/Char_BarWoman.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="textOpt"> 
+<<if setup.HommeMaletteConcertReady is true>> 
+<<if setup.HommeALamaletteConcertEnd is false>> 
+<<set setup.C2 to "SuitcaseMafia">> 
+Le gin à la malette fait jouer une pièce de 25 cents dans la paume de sa main. Lorsqu'il me voit, il me pointe une guitare sur l'estrade. 
+Moi: C'est bien beau mais j'ai quoi en échange? 
+Le gin ne répond pas et pointe à nouveau l'estrade. 
+[["Aller sur l'estrade"|ConcertStart][$sec = setup.seconds]] 
+<</if>> 
+<</if>> 
+[["Aller au lobby principal"|LobbyPrincipal][$sec = setup.seconds]] 
+[["Aller au loge d'artiste"|Loge d'artiste][$sec = setup.seconds]] 
+</div> 
+</div>
+LobbyPrincipal 
+<<set setup.location to "Lobby">> 
+<<set setup.C2 to "none">> 
+<<set $seconds to $sec>> 
+<div class="container"> 
+<div class="Background"><<if setup.location is "Loge">> 
+<img src="./Images/Bkgd_Loge.png" class="Bkgd_img"> 
+<<elseif setup.location is "Bar">> 
+<img src="./Images/Bkgd_Bar.png" class="Bkgd_img"> 
+<<elseif setup.location is "Salle">> 
+<img src="./Images/Bkgd_Salle.png" class="Bkgd_img"> 
+<<elseif setup.location is "Lobby">> 
+<img src="./Images/Bkgd_Lobby.png" class="Bkgd_img"> 
+<<elseif setup.location is "Arcade">> 
+<img src="./Images/Bkgd_Arcade.png" class="Bkgd_img"> 
+<<elseif setup.location is "Musee">> 
+<img src="./Images/Bkgd_Musee.png" class="Bkgd_img"> 
+<</if>> 
+</div> 
+<div class="timer"><span id="countdown">$seconds sec</span> 
+<<silently>> 
+<<repeat 1s>> 
+<<set $seconds to $seconds - 1>> 
+<<if $seconds gt 0>> 
+<<replace "#countdown">>$seconds sec<</replace>> 
+<<set setup.seconds to $seconds>> 
+<<else>> 
+<<goto "EndManager">> 
+<<set setup.seconds to $seconds>> 
+<<stop>> 
+<</if>> 
+<</repeat>> 
+<</silently>></div> 
+<div class="menu"><<if setup.tealvl is 0>><img src="./Images/Tea0.png" class="Knob_img"><<elseif setup.tealvl is 1>><img src="./Images/Tea1.png" class="Knob_img"><<elseif setup.tealvl is 2>><img src="./Images/Tea2.png" class="Knob_img"><<elseif setup.tealvl is 3>><img src="./Images/Tea3.png" class="Knob_img"><<elseif setup.tealvl is 4>><img src="./Images/Tea4.png" class="Knob_img"><</if>><<if setup.coffeelvl is 0>><img src="./Images/Coffee0.png" class="Knob_img"><<elseif setup.coffeelvl is 1>> <img src="./Images/Coffee1.png" class="Knob_img"><<elseif setup.coffeelvl is 2>><img
+src="./Images/Coffee2.png" class="Knob_img"><<elseif setup.coffeelvl is 3>><img src="./Images/Coffee3.png" class="Knob_img"><<elseif setup.coffeelvl is 4>><img src="./Images/Coffee4.png" class="Knob_img"><</if>><<link [img[./Images/Button.png][On with the story]]>><<goto "EndManager">><</link>></div> 
+<div class="C1"><<if setup.coffeelvl is 0>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_0_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_0_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_0_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_0_3.png" class="Char_img"> 
+<<elseif setup.tealvl is 4>> 
+<img src="./Images/Char_Rockstar_0_4.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 1>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_1_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_1_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_1_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_1_3.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 2>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_2_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_2_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_2_2.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 3>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_3_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_3_1.png" class="Char_img">
+<</if>> 
+<<elseif setup.coffeelvl is 4>> 
+<img src="./Images/Char_Rockstar_4_0.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="C2"> 
+<<if setup.C2 is "Shifty">> 
+<img src="./Images/Char_Shifty.png" class="Char_img"> 
+<<elseif setup.C2 is "FakeArm">> 
+<img src="./Images/Char_FakeArm.png" class="Char_img"> 
+<<elseif setup.C2 is "FruitPunch">> 
+<img src="./Images/Char_FruitPunch.png" class="Char_img"> 
+<<elseif setup.C2 is "HighCoffee">> 
+<img src="./Images/Char_HighCoffee.png" class="Char_img"> 
+<<elseif setup.C2 is "JuiceBoxGirl">> 
+<img src="./Images/Char_JuiceBoxGirl.png" class="Char_img"> 
+<<elseif setup.C2 is "Security">> 
+<img src="./Images/Char_Security.png" class="Char_img"> 
+<<elseif setup.C2 is "SuitcaseMafia">> 
+<img src="./Images/Char_SuitcaseMafia.png" class="Char_img"> 
+<<elseif setup.C2 is "BarWoman">> 
+<img src="./Images/Char_BarWoman.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="textOpt"> 
+Le lobby est étrangement peu peuplé malgré l'importance du centre. Une mère et un enfant jus de tomate achètent un ballon et un groupe d'adolescents Soda magasinent. 
+<<if setup.HommeALamaletteEnd is false>> 
+Au bout du couloir se tient aussi un gin portant une valise. 
+[["Aller vers le Gin à la malette"|Homme_Mallette_1][$sec = setup.seconds]] 
+<</if>> 
+[["Aller dans la salle de concert"|Salle de Concert][$sec = setup.seconds]] 
+[["Aller au bar"|Bar][$sec = setup.seconds]] 
+[["Aller au musée"|Musée][$sec = setup.seconds]] 
+[["Aller aux arcades"|Arcades][$sec = setup.seconds]] 
+</div> 
+</div>
+Musée 
+<<set setup.location to "Musee">> 
+<<set $seconds to $sec>> 
+<<set setup.C2 to "none">> 
+<div class="container"> 
+<div class="Background"><<if setup.location is "Loge">> 
+<img src="./Images/Bkgd_Loge.png" class="Bkgd_img"> 
+<<elseif setup.location is "Bar">> 
+<img src="./Images/Bkgd_Bar.png" class="Bkgd_img"> 
+<<elseif setup.location is "Salle">> 
+<img src="./Images/Bkgd_Salle.png" class="Bkgd_img"> 
+<<elseif setup.location is "Lobby">> 
+<img src="./Images/Bkgd_Lobby.png" class="Bkgd_img"> 
+<<elseif setup.location is "Arcade">> 
+<img src="./Images/Bkgd_Arcade.png" class="Bkgd_img"> 
+<<elseif setup.location is "Musee">> 
+<img src="./Images/Bkgd_Musee.png" class="Bkgd_img"> 
+<</if>> 
+</div> 
+<div class="timer"><span id="countdown">$seconds sec</span> 
+<<silently>> 
+<<repeat 1s>> 
+<<set $seconds to $seconds - 1>> 
+<<if $seconds gt 0>> 
+<<replace "#countdown">>$seconds sec<</replace>> 
+<<set setup.seconds to $seconds>> 
+<<else>> 
+<<goto "EndManager">> 
+<<set setup.seconds to $seconds>> 
+<<stop>> 
+<</if>> 
+<</repeat>> 
+<</silently>></div> 
+<div class="menu"><<if setup.tealvl is 0>><img src="./Images/Tea0.png" class="Knob_img"><<elseif setup.tealvl is 1>><img src="./Images/Tea1.png" class="Knob_img"><<elseif setup.tealvl is 2>><img src="./Images/Tea2.png" class="Knob_img"><<elseif setup.tealvl is 3>><img src="./Images/Tea3.png" class="Knob_img"><<elseif setup.tealvl is 4>><img src="./Images/Tea4.png" class="Knob_img"><</if>><<if setup.coffeelvl is 0>><img src="./Images/Coffee0.png" class="Knob_img"><<elseif setup.coffeelvl is 1>>
+<img src="./Images/Coffee1.png" class="Knob_img"><<elseif setup.coffeelvl is 2>><img src="./Images/Coffee2.png" class="Knob_img"><<elseif setup.coffeelvl is 3>><img src="./Images/Coffee3.png" class="Knob_img"><<elseif setup.coffeelvl is 4>><img src="./Images/Coffee4.png" class="Knob_img"><</if>><<link [img[./Images/Button.png][On with the story]]>><<goto "EndManager">><</link>></div> 
+<div class="C1"><<if setup.coffeelvl is 0>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_0_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_0_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_0_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_0_3.png" class="Char_img"> 
+<<elseif setup.tealvl is 4>> 
+<img src="./Images/Char_Rockstar_0_4.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 1>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_1_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_1_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_1_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_1_3.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 2>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_2_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_2_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_2_2.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 3>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_3_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>>
+<img src="./Images/Char_Rockstar_3_1.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 4>> 
+<img src="./Images/Char_Rockstar_4_0.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="C2"> 
+<<if setup.C2 is "Shifty">> 
+<img src="./Images/Char_Shifty.png" class="Char_img"> 
+<<elseif setup.C2 is "FakeArm">> 
+<img src="./Images/Char_FakeArm.png" class="Char_img"> 
+<<elseif setup.C2 is "FruitPunch">> 
+<img src="./Images/Char_FruitPunch.png" class="Char_img"> 
+<<elseif setup.C2 is "HighCoffee">> 
+<img src="./Images/Char_HighCoffee.png" class="Char_img"> 
+<<elseif setup.C2 is "JuiceBoxGirl">> 
+<img src="./Images/Char_JuiceBoxGirl.png" class="Char_img"> 
+<<elseif setup.C2 is "Security">> 
+<img src="./Images/Char_Security.png" class="Char_img"> 
+<<elseif setup.C2 is "SuitcaseMafia">> 
+<img src="./Images/Char_SuitcaseMafia.png" class="Char_img"> 
+<<elseif setup.C2 is "BarWoman">> 
+<img src="./Images/Char_BarWoman.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="textOpt"> 
+Je rentre dans le musée. Un garde est là, défendant fiévreusement les artifacts contre une foule qui n'existe pas. 
+<<if setup.MuseeFragmentTaken is false>> 
+<<set setup.MuseeFragmentInfo to true>> 
+Au milieu du musée se trouve un fragment de café derrière une vitre. Celui-ci est dans une salle isolée fermée au public. 
+<<if setup.MuseeUniforme is false>> 
+[["Aller dans la salle au fragment"|Musee_FragmentRoom_fail][$sec = setup.seconds]] <</if>><<if setup.MuseeUniforme is true>> 
+[["Aller dans la salle au fragment"|Musee_FragmentRoom_succed][$sec = setup.seconds]] <</if>> 
+<</if>> 
+[["Aller au lobby principal"|LobbyPrincipal][$sec = setup.seconds]]
+</div> 
+</div> 
+Arcades 
+<<set setup.location to "Arcade">> 
+<<set setup.C2 to "none">> 
+<<set $seconds to $sec>> 
+<div class="container"> 
+<div class="Background"><<if setup.location is "Loge">> 
+<img src="./Images/Bkgd_Loge.png" class="Bkgd_img"> 
+<<elseif setup.location is "Bar">> 
+<img src="./Images/Bkgd_Bar.png" class="Bkgd_img"> 
+<<elseif setup.location is "Salle">> 
+<img src="./Images/Bkgd_Salle.png" class="Bkgd_img"> 
+<<elseif setup.location is "Lobby">> 
+<img src="./Images/Bkgd_Lobby.png" class="Bkgd_img"> 
+<<elseif setup.location is "Arcade">> 
+<img src="./Images/Bkgd_Arcade.png" class="Bkgd_img"> 
+<<elseif setup.location is "Musee">> 
+<img src="./Images/Bkgd_Musee.png" class="Bkgd_img"> 
+<</if>> 
+</div> 
+<div class="timer"><span id="countdown">$seconds sec</span> 
+<<silently>> 
+<<repeat 1s>> 
+<<set $seconds to $seconds - 1>> 
+<<if $seconds gt 0>> 
+<<replace "#countdown">>$seconds sec<</replace>> 
+<<set setup.seconds to $seconds>> 
+<<else>> 
+<<goto "EndManager">> 
+<<set setup.seconds to $seconds>> 
+<<stop>> 
+<</if>> 
+<</repeat>> 
+<</silently>></div> 
+<div class="menu"><<if setup.tealvl is 0>><img src="./Images/Tea0.png" class="Knob_img"><<elseif setup.tealvl is 1>><img src="./Images/Tea1.png" class="Knob_img"><<elseif setup.tealvl is 2>><img
+src="./Images/Tea2.png" class="Knob_img"><<elseif setup.tealvl is 3>><img src="./Images/Tea3.png" class="Knob_img"><<elseif setup.tealvl is 4>><img src="./Images/Tea4.png" class="Knob_img"><</if>><<if setup.coffeelvl is 0>><img src="./Images/Coffee0.png" class="Knob_img"><<elseif setup.coffeelvl is 1>> <img src="./Images/Coffee1.png" class="Knob_img"><<elseif setup.coffeelvl is 2>><img src="./Images/Coffee2.png" class="Knob_img"><<elseif setup.coffeelvl is 3>><img src="./Images/Coffee3.png" class="Knob_img"><<elseif setup.coffeelvl is 4>><img src="./Images/Coffee4.png" class="Knob_img"><</if>><<link [img[./Images/Button.png][On with the story]]>><<goto "EndManager">><</link>></div> 
+<div class="C1"><<if setup.coffeelvl is 0>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_0_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_0_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_0_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_0_3.png" class="Char_img"> 
+<<elseif setup.tealvl is 4>> 
+<img src="./Images/Char_Rockstar_0_4.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 1>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_1_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_1_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_1_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_1_3.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 2>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_2_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_2_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_2_2.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 3>>
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_3_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_3_1.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 4>> 
+<img src="./Images/Char_Rockstar_4_0.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="C2"> 
+<<if setup.C2 is "Shifty">> 
+<img src="./Images/Char_Shifty.png" class="Char_img"> 
+<<elseif setup.C2 is "FakeArm">> 
+<img src="./Images/Char_FakeArm.png" class="Char_img"> 
+<<elseif setup.C2 is "FruitPunch">> 
+<img src="./Images/Char_FruitPunch.png" class="Char_img"> 
+<<elseif setup.C2 is "HighCoffee">> 
+<img src="./Images/Char_HighCoffee.png" class="Char_img"> 
+<<elseif setup.C2 is "JuiceBoxGirl">> 
+<img src="./Images/Char_JuiceBoxGirl.png" class="Char_img"> 
+<<elseif setup.C2 is "Security">> 
+<img src="./Images/Char_Security.png" class="Char_img"> 
+<<elseif setup.C2 is "SuitcaseMafia">> 
+<img src="./Images/Char_SuitcaseMafia.png" class="Char_img"> 
+<<elseif setup.C2 is "BarWoman">> 
+<img src="./Images/Char_BarWoman.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="textOpt"> 
+Je rentre dans la salle d'arcade et regarde les enfants tirer des cantaloupes et des melons d'eau. Je fais de mon mieux pour éviter de désaprouver ce niveau de violence extrême. 
+<<if setup.ArcadeFalseArm is false>> 
+En plein milieu de la salle, je vois un vieux vin rouge jouer à Dance Dance. Je suis étonné de le voire faire la split dans un jeu qui ne le requiert pas. Il a tout de même l'air un peu débalancé avec son faux bras glaço-mécanique. 
+[["Parler au vin"|Arcades_Vin1][$sec = setup.seconds]] 
+<</if>><<if setup.ArcadeThiefLeft is false>> 
+Au fond de la salle se trouve un Disaronno qui joue avec sa longue moustache. Il possède un badge sur sa poitrine sur lequel il est écrit VOLEUR .
+[["Parler au voleur"|Arcades_Voleur1][$sec = setup.seconds]] <</if>> 
+[["Aller au lobby principal"|LobbyPrincipal][$sec = setup.seconds]] </div> 
+</div> 
+Bar 
+<<set setup.location to "Bar">> 
+<<set $seconds to $sec>> 
+<<set setup.C2 to "none">> 
+<div class="container"> 
+<div class="Background"><<if setup.location is "Loge">> 
+<img src="./Images/Bkgd_Loge.png" class="Bkgd_img"> 
+<<elseif setup.location is "Bar">> 
+<img src="./Images/Bkgd_Bar.png" class="Bkgd_img"> 
+<<elseif setup.location is "Salle">> 
+<img src="./Images/Bkgd_Salle.png" class="Bkgd_img"> 
+<<elseif setup.location is "Lobby">> 
+<img src="./Images/Bkgd_Lobby.png" class="Bkgd_img"> 
+<<elseif setup.location is "Arcade">> 
+<img src="./Images/Bkgd_Arcade.png" class="Bkgd_img"> 
+<<elseif setup.location is "Musee">> 
+<img src="./Images/Bkgd_Musee.png" class="Bkgd_img"> 
+<</if>> 
+</div> 
+<div class="timer"><span id="countdown">$seconds sec</span> <<silently>> 
+<<repeat 1s>> 
+<<set $seconds to $seconds - 1>> 
+<<if $seconds gt 0>> 
+<<replace "#countdown">>$seconds sec<</replace>> 
+<<set setup.seconds to $seconds>> 
+<<else>> 
+<<goto "EndManager">> 
+<<set setup.seconds to $seconds>> 
+<<stop>> 
+<</if>> 
+<</repeat>>
+<</silently>></div> 
+<div class="menu"><<if setup.tealvl is 0>><img src="./Images/Tea0.png" class="Knob_img"><<elseif setup.tealvl is 1>><img src="./Images/Tea1.png" class="Knob_img"><<elseif setup.tealvl is 2>><img src="./Images/Tea2.png" class="Knob_img"><<elseif setup.tealvl is 3>><img src="./Images/Tea3.png" class="Knob_img"><<elseif setup.tealvl is 4>><img src="./Images/Tea4.png" class="Knob_img"><</if>><<if setup.coffeelvl is 0>><img src="./Images/Coffee0.png" class="Knob_img"><<elseif setup.coffeelvl is 1>> <img src="./Images/Coffee1.png" class="Knob_img"><<elseif setup.coffeelvl is 2>><img src="./Images/Coffee2.png" class="Knob_img"><<elseif setup.coffeelvl is 3>><img src="./Images/Coffee3.png" class="Knob_img"><<elseif setup.coffeelvl is 4>><img src="./Images/Coffee4.png" class="Knob_img"><</if>><<link [img[./Images/Button.png][On with the story]]>><<goto "EndManager">><</link>></div> 
+<div class="C1"><<if setup.coffeelvl is 0>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_0_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_0_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_0_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_0_3.png" class="Char_img"> 
+<<elseif setup.tealvl is 4>> 
+<img src="./Images/Char_Rockstar_0_4.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 1>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_1_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_1_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_1_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_1_3.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 2>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_2_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_2_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>>
+<img src="./Images/Char_Rockstar_2_2.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 3>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_3_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_3_1.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 4>> 
+<img src="./Images/Char_Rockstar_4_0.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="C2"> 
+<<if setup.C2 is "Shifty">> 
+<img src="./Images/Char_Shifty.png" class="Char_img"> 
+<<elseif setup.C2 is "FakeArm">> 
+<img src="./Images/Char_FakeArm.png" class="Char_img"> 
+<<elseif setup.C2 is "FruitPunch">> 
+<img src="./Images/Char_FruitPunch.png" class="Char_img"> 
+<<elseif setup.C2 is "HighCoffee">> 
+<img src="./Images/Char_HighCoffee.png" class="Char_img"> 
+<<elseif setup.C2 is "JuiceBoxGirl">> 
+<img src="./Images/Char_JuiceBoxGirl.png" class="Char_img"> 
+<<elseif setup.C2 is "Security">> 
+<img src="./Images/Char_Security.png" class="Char_img"> 
+<<elseif setup.C2 is "SuitcaseMafia">> 
+<img src="./Images/Char_SuitcaseMafia.png" class="Char_img"> 
+<<elseif setup.C2 is "BarWoman">> 
+<img src="./Images/Char_BarWoman.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="textOpt"> 
+Je rentre dans le bar. Une foule de gens dégustent du fromage et des noix qui se trouvent à l'intérieur de leurs verres. 
+La bartender n'a plus rien à faire et regarde le match de Baseball entre les Red Sauce de Salcinaty et les Blue grape de Wineipeg. 
+<<if setup.SandyEventOver is false>> 
+Au fond du bar, il y a une jeune demoiselle jus d'orange qui observe tristement une bague contenant au bout un fragment de café.
+<</if>><<if setup.SandyEventOver is false>> 
+<<if setup.SandyState is 0>> 
+[["Parler à la jeune jus d'orange"|Bar_CindyIntro][$sec = setup.seconds]] <</if>><<if setup.SandyState is 1>> 
+[["Parler à la jeune jus d'orange"|Bar_CindyIntro2_neutral][$sec = setup.seconds]] <</if>><<if setup.SandyState is 2>> 
+[["Parler à la jeune jus d'orange"|Bar_CindyIntro4_neutral][$sec = setup.seconds]] <</if>><<if setup.SandyState is 3>> 
+[["Parler à la jeune jus d'orange"|Bar_CindyIntro][$sec = setup.seconds]] <</if>><<if setup.SandyState is 4>> 
+[["Parler à la jeune jus d'orange"|Bar_CindyIntro][$sec = setup.seconds]] <</if>><</if>> 
+[["Parler à la barmaid"|Bar_Barman][$sec = setup.seconds]] 
+[["Aller au lobby principal"|LobbyPrincipal][$sec = setup.seconds]] </div> 
+</div> 
+Loge d'artiste_Garry_NeedHelp1 
+<<set setup.GarryDialogue to 1>> 
+<<set setup.C2 to "HighCoffee">> 
+<<set $seconds to $sec>> 
+<div class="container"> 
+<div class="Background"><<if setup.location is "Loge">> 
+<img src="./Images/Bkgd_Loge.png" class="Bkgd_img"> 
+<<elseif setup.location is "Bar">> 
+<img src="./Images/Bkgd_Bar.png" class="Bkgd_img"> 
+<<elseif setup.location is "Salle">> 
+<img src="./Images/Bkgd_Salle.png" class="Bkgd_img"> 
+<<elseif setup.location is "Lobby">> 
+<img src="./Images/Bkgd_Lobby.png" class="Bkgd_img"> 
+<<elseif setup.location is "Arcade">> 
+<img src="./Images/Bkgd_Arcade.png" class="Bkgd_img"> 
+<<elseif setup.location is "Musee">> 
+<img src="./Images/Bkgd_Musee.png" class="Bkgd_img"> 
+<</if>> 
+</div> 
+<div class="timer"><span id="countdown">$seconds sec</span> 
+<<silently>>
+<<repeat 1s>> 
+<<set $seconds to $seconds - 1>> 
+<<if $seconds gt 0>> 
+<<replace "#countdown">>$seconds sec<</replace>> 
+<<set setup.seconds to $seconds>> 
+<<else>> 
+<<goto "EndManager">> 
+<<set setup.seconds to $seconds>> 
+<<stop>> 
+<</if>> 
+<</repeat>> 
+<</silently>></div> 
+<div class="menu"><<if setup.tealvl is 0>><img src="./Images/Tea0.png" class="Knob_img"><<elseif setup.tealvl is 1>><img src="./Images/Tea1.png" class="Knob_img"><<elseif setup.tealvl is 2>><img src="./Images/Tea2.png" class="Knob_img"><<elseif setup.tealvl is 3>><img src="./Images/Tea3.png" class="Knob_img"><<elseif setup.tealvl is 4>><img src="./Images/Tea4.png" class="Knob_img"><</if>><<if setup.coffeelvl is 0>><img src="./Images/Coffee0.png" class="Knob_img"><<elseif setup.coffeelvl is 1>> <img src="./Images/Coffee1.png" class="Knob_img"><<elseif setup.coffeelvl is 2>><img src="./Images/Coffee2.png" class="Knob_img"><<elseif setup.coffeelvl is 3>><img src="./Images/Coffee3.png" class="Knob_img"><<elseif setup.coffeelvl is 4>><img src="./Images/Coffee4.png" class="Knob_img"><</if>><<link [img[./Images/Button.png][On with the story]]>><<goto "EndManager">><</link>></div> 
+<div class="C1"><<if setup.coffeelvl is 0>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_0_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_0_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_0_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_0_3.png" class="Char_img"> 
+<<elseif setup.tealvl is 4>> 
+<img src="./Images/Char_Rockstar_0_4.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 1>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_1_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_1_1.png" class="Char_img">
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_1_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_1_3.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 2>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_2_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_2_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_2_2.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 3>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_3_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_3_1.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 4>> 
+<img src="./Images/Char_Rockstar_4_0.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="C2"> 
+<<if setup.C2 is "Shifty">> 
+<img src="./Images/Char_Shifty.png" class="Char_img"> 
+<<elseif setup.C2 is "FakeArm">> 
+<img src="./Images/Char_FakeArm.png" class="Char_img"> 
+<<elseif setup.C2 is "FruitPunch">> 
+<img src="./Images/Char_FruitPunch.png" class="Char_img"> 
+<<elseif setup.C2 is "HighCoffee">> 
+<img src="./Images/Char_HighCoffee.png" class="Char_img"> 
+<<elseif setup.C2 is "JuiceBoxGirl">> 
+<img src="./Images/Char_JuiceBoxGirl.png" class="Char_img"> 
+<<elseif setup.C2 is "Security">> 
+<img src="./Images/Char_Security.png" class="Char_img"> 
+<<elseif setup.C2 is "SuitcaseMafia">> 
+<img src="./Images/Char_SuitcaseMafia.png" class="Char_img"> 
+<<elseif setup.C2 is "BarWoman">>
+<img src="./Images/Char_BarWoman.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="textOpt"> 
+Garry me regarde d'un air vitreux. 
+<p style="color:rgb(255, 0, 0)">Café Garry: Tout va bien, ne t'inquiète pas. La vie n'est qu'une illusion.</p> 
+<<if setup.FirstSongUnlock is false>> 
+[["Rappelle-moi le code du coffre."|Loge d'artiste_Garry_CoffreHelp][$sec = setup.seconds]] <</if>><<if setup.GarryDialogue is 1>> 
+[["J'ai besoin de ton aide"|Loge d'artiste_Garry_NeedHelp2][$sec = setup.seconds]] <</if>>. 
+<<if setup.GarryDialogue is 2>> 
+[["J'ai vraiment besoin de ton aide."|Loge d'artiste_Garry_NeedHelp3][$sec = setup.seconds]] <</if>> 
+[["Ok oublie ça"|Loge d'artiste][$sec = setup.seconds]] 
+</div> 
+</div> 
+Loge d'artiste_Garry_NeedHelp2 
+<<set setup.GarryDialogue to 2>> 
+<<set setup.C2 to "HighCoffee">> 
+<<set $seconds to $sec>> 
+<div class="container"> 
+<div class="Background"><<if setup.location is "Loge">> 
+<img src="./Images/Bkgd_Loge.png" class="Bkgd_img"> 
+<<elseif setup.location is "Bar">> 
+<img src="./Images/Bkgd_Bar.png" class="Bkgd_img"> 
+<<elseif setup.location is "Salle">> 
+<img src="./Images/Bkgd_Salle.png" class="Bkgd_img"> 
+<<elseif setup.location is "Lobby">> 
+<img src="./Images/Bkgd_Lobby.png" class="Bkgd_img"> 
+<<elseif setup.location is "Arcade">> 
+<img src="./Images/Bkgd_Arcade.png" class="Bkgd_img"> 
+<<elseif setup.location is "Musee">> 
+<img src="./Images/Bkgd_Musee.png" class="Bkgd_img"> 
+<</if>> 
+</div>
+<div class="timer"><span id="countdown">$seconds sec</span> 
+<<silently>> 
+<<repeat 1s>> 
+<<set $seconds to $seconds - 1>> 
+<<if $seconds gt 0>> 
+<<replace "#countdown">>$seconds sec<</replace>> 
+<<set setup.seconds to $seconds>> 
+<<else>> 
+<<goto "EndManager">> 
+<<set setup.seconds to $seconds>> 
+<<stop>> 
+<</if>> 
+<</repeat>> 
+<</silently>></div> 
+<div class="menu"><<if setup.tealvl is 0>><img src="./Images/Tea0.png" class="Knob_img"><<elseif setup.tealvl is 1>><img src="./Images/Tea1.png" class="Knob_img"><<elseif setup.tealvl is 2>><img src="./Images/Tea2.png" class="Knob_img"><<elseif setup.tealvl is 3>><img src="./Images/Tea3.png" class="Knob_img"><<elseif setup.tealvl is 4>><img src="./Images/Tea4.png" class="Knob_img"><</if>><<if setup.coffeelvl is 0>><img src="./Images/Coffee0.png" class="Knob_img"><<elseif setup.coffeelvl is 1>> <img src="./Images/Coffee1.png" class="Knob_img"><<elseif setup.coffeelvl is 2>><img src="./Images/Coffee2.png" class="Knob_img"><<elseif setup.coffeelvl is 3>><img src="./Images/Coffee3.png" class="Knob_img"><<elseif setup.coffeelvl is 4>><img src="./Images/Coffee4.png" class="Knob_img"><</if>><<link [img[./Images/Button.png][On with the story]]>><<goto "EndManager">><</link>></div> 
+<div class="C1"><<if setup.coffeelvl is 0>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_0_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_0_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_0_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_0_3.png" class="Char_img"> 
+<<elseif setup.tealvl is 4>> 
+<img src="./Images/Char_Rockstar_0_4.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 1>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_1_0.png" class="Char_img">
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_1_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_1_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_1_3.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 2>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_2_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_2_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_2_2.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 3>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_3_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_3_1.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 4>> 
+<img src="./Images/Char_Rockstar_4_0.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="C2"> 
+<<if setup.C2 is "Shifty">> 
+<img src="./Images/Char_Shifty.png" class="Char_img"> 
+<<elseif setup.C2 is "FakeArm">> 
+<img src="./Images/Char_FakeArm.png" class="Char_img"> 
+<<elseif setup.C2 is "FruitPunch">> 
+<img src="./Images/Char_FruitPunch.png" class="Char_img"> 
+<<elseif setup.C2 is "HighCoffee">> 
+<img src="./Images/Char_HighCoffee.png" class="Char_img"> 
+<<elseif setup.C2 is "JuiceBoxGirl">> 
+<img src="./Images/Char_JuiceBoxGirl.png" class="Char_img"> 
+<<elseif setup.C2 is "Security">> 
+<img src="./Images/Char_Security.png" class="Char_img"> 
+<<elseif setup.C2 is "SuitcaseMafia">>
+<img src="./Images/Char_SuitcaseMafia.png" class="Char_img"> 
+<<elseif setup.C2 is "BarWoman">> 
+<img src="./Images/Char_BarWoman.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="textOpt"> 
+Garry me regarde d'un air vitreux. 
+<p style="color:rgb(255, 0, 0)">Café Garry: Tout va bien. La vie est en harmonie avec elle même. Ne sens-tu pas le vent soulever le sable?</p><p style="color:rgb(235, 235, 235)">Moi: Le sable?</p><p style="color:rgb(255, 0, 0)">Café Garry: Cherches. Vas chercher le sable intérieur.</p> <<if setup.FirstSongUnlock is false>> 
+[["Rappelle-moi le code du coffre."|Loge d'artiste_Garry_CoffreHelp][$sec = setup.seconds]] <</if>><<if setup.GarryDialogue is 2>> 
+[["J'ai vraiment besoin de ton aide."|Loge d'artiste_Garry_NeedHelp3][$sec = setup.seconds]] <</if>> 
+[["Ok oublie ça"|Loge d'artiste][$sec = setup.seconds]] 
+</div> 
+</div> 
+Loge d'artiste_Garry_NeedHelp3 
+<<set setup.GaryTalked to true>> 
+<<set setup.C2 to "HighCoffee">> 
+<<set setup.GarryDialogue to 2>> 
+<<set $seconds to $sec>> 
+<div class="container"> 
+<div class="Background"><<if setup.location is "Loge">> 
+<img src="./Images/Bkgd_Loge.png" class="Bkgd_img"> 
+<<elseif setup.location is "Bar">> 
+<img src="./Images/Bkgd_Bar.png" class="Bkgd_img"> 
+<<elseif setup.location is "Salle">> 
+<img src="./Images/Bkgd_Salle.png" class="Bkgd_img"> 
+<<elseif setup.location is "Lobby">> 
+<img src="./Images/Bkgd_Lobby.png" class="Bkgd_img"> 
+<<elseif setup.location is "Arcade">> 
+<img src="./Images/Bkgd_Arcade.png" class="Bkgd_img"> 
+<<elseif setup.location is "Musee">> 
+<img src="./Images/Bkgd_Musee.png" class="Bkgd_img"> 
+<</if>>
+</div> 
+<div class="timer"><span id="countdown">$seconds sec</span> 
+<<silently>> 
+<<repeat 1s>> 
+<<set $seconds to $seconds - 1>> 
+<<if $seconds gt 0>> 
+<<replace "#countdown">>$seconds sec<</replace>> 
+<<set setup.seconds to $seconds>> 
+<<else>> 
+<<goto "EndManager">> 
+<<set setup.seconds to $seconds>> 
+<<stop>> 
+<</if>> 
+<</repeat>> 
+<</silently>></div> 
+<div class="menu"><<if setup.tealvl is 0>><img src="./Images/Tea0.png" class="Knob_img"><<elseif setup.tealvl is 1>><img src="./Images/Tea1.png" class="Knob_img"><<elseif setup.tealvl is 2>><img src="./Images/Tea2.png" class="Knob_img"><<elseif setup.tealvl is 3>><img src="./Images/Tea3.png" class="Knob_img"><<elseif setup.tealvl is 4>><img src="./Images/Tea4.png" class="Knob_img"><</if>><<if setup.coffeelvl is 0>><img src="./Images/Coffee0.png" class="Knob_img"><<elseif setup.coffeelvl is 1>> <img src="./Images/Coffee1.png" class="Knob_img"><<elseif setup.coffeelvl is 2>><img src="./Images/Coffee2.png" class="Knob_img"><<elseif setup.coffeelvl is 3>><img src="./Images/Coffee3.png" class="Knob_img"><<elseif setup.coffeelvl is 4>><img src="./Images/Coffee4.png" class="Knob_img"><</if>><<link [img[./Images/Button.png][On with the story]]>><<goto "EndManager">><</link>></div> 
+<div class="C1"><<if setup.coffeelvl is 0>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_0_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_0_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_0_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_0_3.png" class="Char_img"> 
+<<elseif setup.tealvl is 4>> 
+<img src="./Images/Char_Rockstar_0_4.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 1>> 
+<<if setup.tealvl is 0>>
+<img src="./Images/Char_Rockstar_1_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_1_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_1_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_1_3.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 2>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_2_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_2_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_2_2.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 3>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_3_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_3_1.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 4>> 
+<img src="./Images/Char_Rockstar_4_0.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="C2"> 
+<<if setup.C2 is "Shifty">> 
+<img src="./Images/Char_Shifty.png" class="Char_img"> 
+<<elseif setup.C2 is "FakeArm">> 
+<img src="./Images/Char_FakeArm.png" class="Char_img"> 
+<<elseif setup.C2 is "FruitPunch">> 
+<img src="./Images/Char_FruitPunch.png" class="Char_img"> 
+<<elseif setup.C2 is "HighCoffee">> 
+<img src="./Images/Char_HighCoffee.png" class="Char_img"> 
+<<elseif setup.C2 is "JuiceBoxGirl">> 
+<img src="./Images/Char_JuiceBoxGirl.png" class="Char_img"> 
+<<elseif setup.C2 is "Security">> 
+<img src="./Images/Char_Security.png" class="Char_img">
+<<elseif setup.C2 is "SuitcaseMafia">> 
+<img src="./Images/Char_SuitcaseMafia.png" class="Char_img"> 
+<<elseif setup.C2 is "BarWoman">> 
+<img src="./Images/Char_BarWoman.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="textOpt"> 
+Garry me regarde d'un air vitreux. 
+<p style="color:rgb(255, 0, 0)">Café Garry: Ce n'est qu'une illusion. La vie n'est qu'une illusion.</p> <p style="color:rgb(235, 235, 235)">Moi: Tu peux m'aider ou pas?</p><p style="color:rgb(255, 0, 0)">Café Garry: Seul toi tu peux t'aider. Va voir l'homme à la valise au Lobby, il saura te montrer la voie. </p> <<set setup.GaryTalked to true>> 
+<<if setup.FirstSongUnlock is false>> 
+[["Rappelle-moi le code du coffre."|Loge d'artiste_Garry_CoffreHelp][$sec = setup.seconds]] <</if>> 
+[["Ok je vais essayer ça"|Loge d'artiste][$sec = setup.seconds]] 
+</div> 
+</div> 
+Punch_Ami1 
+<<set setup.PunchGirl to 1>> 
+<<set setup.C2 to "FruitPunch">> 
+<<set $seconds to $sec>> 
+<div class="container"> 
+<div class="Background"><<if setup.location is "Loge">> 
+<img src="./Images/Bkgd_Loge.png" class="Bkgd_img"> 
+<<elseif setup.location is "Bar">> 
+<img src="./Images/Bkgd_Bar.png" class="Bkgd_img"> 
+<<elseif setup.location is "Salle">> 
+<img src="./Images/Bkgd_Salle.png" class="Bkgd_img"> 
+<<elseif setup.location is "Lobby">> 
+<img src="./Images/Bkgd_Lobby.png" class="Bkgd_img"> 
+<<elseif setup.location is "Arcade">> 
+<img src="./Images/Bkgd_Arcade.png" class="Bkgd_img"> 
+<<elseif setup.location is "Musee">> 
+<img src="./Images/Bkgd_Musee.png" class="Bkgd_img"> 
+<</if>> 
+</div>
+<div class="timer"><span id="countdown">$seconds sec</span> 
+<<silently>> 
+<<repeat 1s>> 
+<<set $seconds to $seconds - 1>> 
+<<if $seconds gt 0>> 
+<<replace "#countdown">>$seconds sec<</replace>> 
+<<set setup.seconds to $seconds>> 
+<<else>> 
+<<goto "EndManager">> 
+<<set setup.seconds to $seconds>> 
+<<stop>> 
+<</if>> 
+<</repeat>> 
+<</silently>></div> 
+<div class="menu"><<if setup.tealvl is 0>><img src="./Images/Tea0.png" class="Knob_img"><<elseif setup.tealvl is 1>><img src="./Images/Tea1.png" class="Knob_img"><<elseif setup.tealvl is 2>><img src="./Images/Tea2.png" class="Knob_img"><<elseif setup.tealvl is 3>><img src="./Images/Tea3.png" class="Knob_img"><<elseif setup.tealvl is 4>><img src="./Images/Tea4.png" class="Knob_img"><</if>><<if setup.coffeelvl is 0>><img src="./Images/Coffee0.png" class="Knob_img"><<elseif setup.coffeelvl is 1>> <img src="./Images/Coffee1.png" class="Knob_img"><<elseif setup.coffeelvl is 2>><img src="./Images/Coffee2.png" class="Knob_img"><<elseif setup.coffeelvl is 3>><img src="./Images/Coffee3.png" class="Knob_img"><<elseif setup.coffeelvl is 4>><img src="./Images/Coffee4.png" class="Knob_img"><</if>><<link [img[./Images/Button.png][On with the story]]>><<goto "EndManager">><</link>></div> 
+<div class="C1"><<if setup.coffeelvl is 0>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_0_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_0_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_0_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_0_3.png" class="Char_img"> 
+<<elseif setup.tealvl is 4>> 
+<img src="./Images/Char_Rockstar_0_4.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 1>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_1_0.png" class="Char_img">
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_1_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_1_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_1_3.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 2>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_2_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_2_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_2_2.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 3>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_3_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_3_1.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 4>> 
+<img src="./Images/Char_Rockstar_4_0.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="C2"> 
+<<if setup.C2 is "Shifty">> 
+<img src="./Images/Char_Shifty.png" class="Char_img"> 
+<<elseif setup.C2 is "FakeArm">> 
+<img src="./Images/Char_FakeArm.png" class="Char_img"> 
+<<elseif setup.C2 is "FruitPunch">> 
+<img src="./Images/Char_FruitPunch.png" class="Char_img"> 
+<<elseif setup.C2 is "HighCoffee">> 
+<img src="./Images/Char_HighCoffee.png" class="Char_img"> 
+<<elseif setup.C2 is "JuiceBoxGirl">> 
+<img src="./Images/Char_JuiceBoxGirl.png" class="Char_img"> 
+<<elseif setup.C2 is "Security">> 
+<img src="./Images/Char_Security.png" class="Char_img"> 
+<<elseif setup.C2 is "SuitcaseMafia">>
+<img src="./Images/Char_SuitcaseMafia.png" class="Char_img"> 
+<<elseif setup.C2 is "BarWoman">> 
+<img src="./Images/Char_BarWoman.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="textOpt"> 
+<p style="color:rgb(242, 51, 25)">Punch: Ami est un grand mot.</p><p style="color:rgb(235, 235, 235)">Moi: Connaissance?</p><p style="color:rgb(242, 51, 25)">Punch : Je dirais.. que ça aussi est un grand mot.</p><p style="color:rgb(235, 235, 235)">Moi: Alors quel serait le mot?</p><p style="color:rgb(242, 51, 25)">Punch: Je sais pas trop, on s'est rencontré dans une partie de dongeon et dragon organisée par un ami jus de tomate et il m'a invité et il a passé la soirée allongé à fixer le plafond, je sais même pas s'il sait que je suis là. Attends laisse moi vérifier. Gary Hello!</p><p style="color:rgb(255, 0, 0)">Garry se retourne et me regarde un instant.</p><p style="color:rgb(255, 0, 0)">Garry: Hey à qui tu parles mec?</p>La jeune punch prend un air exaspéré et se replonge dans Human Crush. 
+<<if setup.PunchGirl is 1>> 
+<<if setup.SeingSandy is false>> 
+[["Alors tu fais quoi encore ici?"|Punch_Ami2][$sec = setup.seconds]] 
+<</if>><<if setup.SeingSandy is true>> 
+[["Alors tu fais quoi encore ici?"|Punch_SandySawAmi2][$sec = setup.seconds]] 
+<</if>> 
+<</if>><<if setup.PunchGirl_SandyInfo is 1>> 
+[["Elle est où ton amie?"|Punch_SandyAmi1][$sec = setup.seconds]] 
+<</if>><<if setup.PunchGirl_SandyInfo is 2>> 
+[["Elle est où déjà ton amie?"|SandyPunch_Am21][$sec = setup.seconds]] 
+<</if>><<if setup.PunchGirlInfo is false>> 
+[["Qu'est-ce que tu peux me dire sur Sodapolis?"|Punch_InfoSoda][$sec = setup.seconds]] <</if>><<if setup.PunchGirlInfo is true>> 
+[["Qu'est-ce que tu disais sur Sodapolis déjà?"|Punch_RepeatInfoSoda][$sec = setup.seconds]] <</if>> 
+[["Bon je te laisse à Human Crush"|Loge d'artiste][$sec = setup.seconds]] 
+</div> 
+</div> 
+Punch_InfoSoda 
+<<set setup.PunchGirlInfo to true>> 
+<<set setup.C2 to "FruitPunch">> 
+<<set $seconds to $sec>>
+<div class="container"> 
+<div class="Background"><<if setup.location is "Loge">> 
+<img src="./Images/Bkgd_Loge.png" class="Bkgd_img"> 
+<<elseif setup.location is "Bar">> 
+<img src="./Images/Bkgd_Bar.png" class="Bkgd_img"> 
+<<elseif setup.location is "Salle">> 
+<img src="./Images/Bkgd_Salle.png" class="Bkgd_img"> 
+<<elseif setup.location is "Lobby">> 
+<img src="./Images/Bkgd_Lobby.png" class="Bkgd_img"> 
+<<elseif setup.location is "Arcade">> 
+<img src="./Images/Bkgd_Arcade.png" class="Bkgd_img"> 
+<<elseif setup.location is "Musee">> 
+<img src="./Images/Bkgd_Musee.png" class="Bkgd_img"> 
+<</if>> 
+</div> 
+<div class="timer"><span id="countdown">$seconds sec</span> 
+<<silently>> 
+<<repeat 1s>> 
+<<set $seconds to $seconds - 1>> 
+<<if $seconds gt 0>> 
+<<replace "#countdown">>$seconds sec<</replace>> 
+<<set setup.seconds to $seconds>> 
+<<else>> 
+<<goto "EndManager">> 
+<<set setup.seconds to $seconds>> 
+<<stop>> 
+<</if>> 
+<</repeat>> 
+<</silently>></div> 
+<div class="menu"><<if setup.tealvl is 0>><img src="./Images/Tea0.png" class="Knob_img"><<elseif setup.tealvl is 1>><img src="./Images/Tea1.png" class="Knob_img"><<elseif setup.tealvl is 2>><img src="./Images/Tea2.png" class="Knob_img"><<elseif setup.tealvl is 3>><img src="./Images/Tea3.png" class="Knob_img"><<elseif setup.tealvl is 4>><img src="./Images/Tea4.png" class="Knob_img"><</if>><<if setup.coffeelvl is 0>><img src="./Images/Coffee0.png" class="Knob_img"><<elseif setup.coffeelvl is 1>> <img src="./Images/Coffee1.png" class="Knob_img"><<elseif setup.coffeelvl is 2>><img src="./Images/Coffee2.png" class="Knob_img"><<elseif setup.coffeelvl is 3>><img src="./Images/Coffee3.png" class="Knob_img"><<elseif setup.coffeelvl is 4>><img src="./Images/Coffee4.png" class="Knob_img"><</if>><<link [img[./Images/Button.png][On with the story]]>><<goto "EndManager">><</link>></div>
+<div class="C1"><<if setup.coffeelvl is 0>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_0_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_0_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_0_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_0_3.png" class="Char_img"> 
+<<elseif setup.tealvl is 4>> 
+<img src="./Images/Char_Rockstar_0_4.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 1>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_1_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_1_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_1_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_1_3.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 2>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_2_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_2_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_2_2.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 3>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_3_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_3_1.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 4>> 
+<img src="./Images/Char_Rockstar_4_0.png" class="Char_img"> 
+<</if>>
+</div> 
+<div class="C2"> 
+<<if setup.C2 is "Shifty">> 
+<img src="./Images/Char_Shifty.png" class="Char_img"> 
+<<elseif setup.C2 is "FakeArm">> 
+<img src="./Images/Char_FakeArm.png" class="Char_img"> 
+<<elseif setup.C2 is "FruitPunch">> 
+<img src="./Images/Char_FruitPunch.png" class="Char_img"> 
+<<elseif setup.C2 is "HighCoffee">> 
+<img src="./Images/Char_HighCoffee.png" class="Char_img"> 
+<<elseif setup.C2 is "JuiceBoxGirl">> 
+<img src="./Images/Char_JuiceBoxGirl.png" class="Char_img"> 
+<<elseif setup.C2 is "Security">> 
+<img src="./Images/Char_Security.png" class="Char_img"> 
+<<elseif setup.C2 is "SuitcaseMafia">> 
+<img src="./Images/Char_SuitcaseMafia.png" class="Char_img"> 
+<<elseif setup.C2 is "BarWoman">> 
+<img src="./Images/Char_BarWoman.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="textOpt"> 
+<<set setup.MuseeFragmentInfo to true>> 
+<p style="color:rgb(242, 51, 25)">Punch: Disons, il y a la plus grande communauté de gens eau dans une petite ville isolée à quelques dizaines kilomètres d'ici, sinon on a le musée de brevages contemporains pas très loin d'ici. Ah et on a un musée où il y a un paquet de truc vieux étranges du genre le premier fragment de café qui a poussé à Sodapolis.</p><p style="color:rgb(235, 235, 235)">Moi: Ah ouais où ça? </p><p style="color:rgb(242, 51, 25)">Punch: Tu prends l'avion, tu va traverser l'océan et puis tu fais demi tour tu atterris à Sodapolis, tu reviens ici, tu sors de la salle de spectacle et c'est à ta gauche.</p> 
+<<if setup.PunchGirl_SandyInfo is 1>> 
+[["Elle est où ton amie?"|Punch_SandyAmi1][$sec = setup.seconds]] 
+<</if>><<if setup.PunchGirl_SandyInfo is 2>> 
+[["Rappelle-moi elle est où ton amie?"|SandyPunch_Am21][$sec = setup.seconds]] <</if>><<if setup.PunchGirl is 0>> 
+[["Tu es une amie de Garry?"|Punch_Ami1][$sec = setup.seconds]] 
+<</if>><<if setup.PunchGirl is 1>> 
+[["Alors tu fais quoi encore ici?"|Punch_Ami2][$sec = setup.seconds]] 
+<</if>> 
+[["Bon je te laisse à Human Crush"|Loge d'artiste][$sec = setup.seconds]]
+</div> 
+</div> 
+Punch_RepeatInfoSoda 
+<<set setup.PunchGirl to 0>> 
+<<set setup.C2 to "FruitPunch">> 
+<<set $seconds to $sec>> 
+<div class="container"> 
+<div class="Background"><<if setup.location is "Loge">> 
+<img src="./Images/Bkgd_Loge.png" class="Bkgd_img"> 
+<<elseif setup.location is "Bar">> 
+<img src="./Images/Bkgd_Bar.png" class="Bkgd_img"> 
+<<elseif setup.location is "Salle">> 
+<img src="./Images/Bkgd_Salle.png" class="Bkgd_img"> 
+<<elseif setup.location is "Lobby">> 
+<img src="./Images/Bkgd_Lobby.png" class="Bkgd_img"> 
+<<elseif setup.location is "Arcade">> 
+<img src="./Images/Bkgd_Arcade.png" class="Bkgd_img"> 
+<<elseif setup.location is "Musee">> 
+<img src="./Images/Bkgd_Musee.png" class="Bkgd_img"> 
+<</if>> 
+</div> 
+<div class="timer"><span id="countdown">$seconds sec</span> 
+<<silently>> 
+<<repeat 1s>> 
+<<set $seconds to $seconds - 1>> 
+<<if $seconds gt 0>> 
+<<replace "#countdown">>$seconds sec<</replace>> 
+<<set setup.seconds to $seconds>> 
+<<else>> 
+<<goto "EndManager">> 
+<<set setup.seconds to $seconds>> 
+<<stop>> 
+<</if>> 
+<</repeat>> 
+<</silently>></div> 
+<div class="menu"><<if setup.tealvl is 0>><img src="./Images/Tea0.png" class="Knob_img"><<elseif setup.tealvl is 1>><img src="./Images/Tea1.png" class="Knob_img"><<elseif setup.tealvl is 2>><img
+src="./Images/Tea2.png" class="Knob_img"><<elseif setup.tealvl is 3>><img src="./Images/Tea3.png" class="Knob_img"><<elseif setup.tealvl is 4>><img src="./Images/Tea4.png" class="Knob_img"><</if>><<if setup.coffeelvl is 0>><img src="./Images/Coffee0.png" class="Knob_img"><<elseif setup.coffeelvl is 1>> <img src="./Images/Coffee1.png" class="Knob_img"><<elseif setup.coffeelvl is 2>><img src="./Images/Coffee2.png" class="Knob_img"><<elseif setup.coffeelvl is 3>><img src="./Images/Coffee3.png" class="Knob_img"><<elseif setup.coffeelvl is 4>><img src="./Images/Coffee4.png" class="Knob_img"><</if>><<link [img[./Images/Button.png][On with the story]]>><<goto "EndManager">><</link>></div> 
+<div class="C1"><<if setup.coffeelvl is 0>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_0_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_0_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_0_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_0_3.png" class="Char_img"> 
+<<elseif setup.tealvl is 4>> 
+<img src="./Images/Char_Rockstar_0_4.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 1>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_1_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_1_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_1_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_1_3.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 2>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_2_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_2_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_2_2.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 3>>
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_3_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_3_1.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 4>> 
+<img src="./Images/Char_Rockstar_4_0.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="C2"> 
+<<if setup.C2 is "Shifty">> 
+<img src="./Images/Char_Shifty.png" class="Char_img"> 
+<<elseif setup.C2 is "FakeArm">> 
+<img src="./Images/Char_FakeArm.png" class="Char_img"> 
+<<elseif setup.C2 is "FruitPunch">> 
+<img src="./Images/Char_FruitPunch.png" class="Char_img"> 
+<<elseif setup.C2 is "HighCoffee">> 
+<img src="./Images/Char_HighCoffee.png" class="Char_img"> 
+<<elseif setup.C2 is "JuiceBoxGirl">> 
+<img src="./Images/Char_JuiceBoxGirl.png" class="Char_img"> 
+<<elseif setup.C2 is "Security">> 
+<img src="./Images/Char_Security.png" class="Char_img"> 
+<<elseif setup.C2 is "SuitcaseMafia">> 
+<img src="./Images/Char_SuitcaseMafia.png" class="Char_img"> 
+<<elseif setup.C2 is "BarWoman">> 
+<img src="./Images/Char_BarWoman.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="textOpt"> 
+La jeune fille punch soupir un instant 
+<p style="color:rgb(242, 51, 25)">Punch: Bon écoute attentivement, il y a la plus grande communauté de gens eau dans une petite ville isolée à quelques dizaines kilomètres d'ici, sinon on a le musée de brevages contemporains pas très loin d'ici. Ah et on a un musée où il y a un paquet de truc vieux étranges du genre le premier fragment de café qui a poussé à Sodapolis.</p><p style="color:rgb(235, 235, 235)">Moi: Ah ouais où ça?</p><p style="color:rgb(242, 51, 25)">Punch: Tu prends l'avion, tu va traverser l'océan et puis tu fais demi tour tu atterris à Sodapolis, tu reviens ici, tu sors de la salle de spectacle et c'est à ta gauche.</p> <<if setup.PunchGirl_SandyInfo is 1>> 
+[["Elle est où ton amie?"|Punch_SandyAmi1][$sec = setup.seconds]] 
+<</if>><<if setup.PunchGirl_SandyInfo is 2>>
+[["Rappelle-moi elle est où ton amie?"|SandyPunch_Am21][$sec = setup.seconds]] <</if>><<if setup.PunchGirl is 0>> 
+[["Tu es une amie de Garry?"|Punch_Ami1][$sec = setup.seconds]] <</if>><<if setup.PunchGirl is 1>> 
+[["Alors tu fais quoi encore ici?"|Punch_Ami2][$sec = setup.seconds]] <</if>> 
+[["Bon je te laisse à Human Crush"|Loge d'artiste][$sec = setup.seconds]] </div> 
+</div> 
+Punch_Ami2 
+<<set setup.PunchGirl_SandyInfo to 1>> 
+<<set setup.C2 to "FruitPunch">> 
+<<set setup.PunchGirl to 2>> 
+<<set $seconds to $sec>> 
+<div class="container"> 
+<div class="Background"><<if setup.location is "Loge">> 
+<img src="./Images/Bkgd_Loge.png" class="Bkgd_img"> 
+<<elseif setup.location is "Bar">> 
+<img src="./Images/Bkgd_Bar.png" class="Bkgd_img"> 
+<<elseif setup.location is "Salle">> 
+<img src="./Images/Bkgd_Salle.png" class="Bkgd_img"> 
+<<elseif setup.location is "Lobby">> 
+<img src="./Images/Bkgd_Lobby.png" class="Bkgd_img"> 
+<<elseif setup.location is "Arcade">> 
+<img src="./Images/Bkgd_Arcade.png" class="Bkgd_img"> 
+<<elseif setup.location is "Musee">> 
+<img src="./Images/Bkgd_Musee.png" class="Bkgd_img"> 
+<</if>> 
+</div> 
+<div class="timer"><span id="countdown">$seconds sec</span> <<silently>> 
+<<repeat 1s>> 
+<<set $seconds to $seconds - 1>> 
+<<if $seconds gt 0>> 
+<<replace "#countdown">>$seconds sec<</replace>> 
+<<set setup.seconds to $seconds>> 
+<<else>>
+<<goto "EndManager">> 
+<<set setup.seconds to $seconds>> 
+<<stop>> 
+<</if>> 
+<</repeat>> 
+<</silently>></div> 
+<div class="menu"><<if setup.tealvl is 0>><img src="./Images/Tea0.png" class="Knob_img"><<elseif setup.tealvl is 1>><img src="./Images/Tea1.png" class="Knob_img"><<elseif setup.tealvl is 2>><img src="./Images/Tea2.png" class="Knob_img"><<elseif setup.tealvl is 3>><img src="./Images/Tea3.png" class="Knob_img"><<elseif setup.tealvl is 4>><img src="./Images/Tea4.png" class="Knob_img"><</if>><<if setup.coffeelvl is 0>><img src="./Images/Coffee0.png" class="Knob_img"><<elseif setup.coffeelvl is 1>> <img src="./Images/Coffee1.png" class="Knob_img"><<elseif setup.coffeelvl is 2>><img src="./Images/Coffee2.png" class="Knob_img"><<elseif setup.coffeelvl is 3>><img src="./Images/Coffee3.png" class="Knob_img"><<elseif setup.coffeelvl is 4>><img src="./Images/Coffee4.png" class="Knob_img"><</if>><<link [img[./Images/Button.png][On with the story]]>><<goto "EndManager">><</link>></div> 
+<div class="C1"><<if setup.coffeelvl is 0>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_0_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_0_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_0_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_0_3.png" class="Char_img"> 
+<<elseif setup.tealvl is 4>> 
+<img src="./Images/Char_Rockstar_0_4.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 1>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_1_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_1_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_1_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_1_3.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 2>>
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_2_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_2_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_2_2.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 3>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_3_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_3_1.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 4>> 
+<img src="./Images/Char_Rockstar_4_0.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="C2"> 
+<<if setup.C2 is "Shifty">> 
+<img src="./Images/Char_Shifty.png" class="Char_img"> 
+<<elseif setup.C2 is "FakeArm">> 
+<img src="./Images/Char_FakeArm.png" class="Char_img"> 
+<<elseif setup.C2 is "FruitPunch">> 
+<img src="./Images/Char_FruitPunch.png" class="Char_img"> 
+<<elseif setup.C2 is "HighCoffee">> 
+<img src="./Images/Char_HighCoffee.png" class="Char_img"> 
+<<elseif setup.C2 is "JuiceBoxGirl">> 
+<img src="./Images/Char_JuiceBoxGirl.png" class="Char_img"> 
+<<elseif setup.C2 is "Security">> 
+<img src="./Images/Char_Security.png" class="Char_img"> 
+<<elseif setup.C2 is "SuitcaseMafia">> 
+<img src="./Images/Char_SuitcaseMafia.png" class="Char_img"> 
+<<elseif setup.C2 is "BarWoman">> 
+<img src="./Images/Char_BarWoman.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="textOpt"> 
+<p style="color:rgb(242, 51, 25)">Punch: Je sais pas, Garry a toujours été mon membre du groupe préféré et je suppose je vis le rêve, ou je m'ajuste à la réalité, un des deux.</p><p style="color:rgb(235, 235,
+235)">Moi: Tu trouves vraiment que Garry est le meilleur membre du groupe?</p><p style="color:rgb(242, 51, 25)">Punch : T'aurais préféré que je dise que c'est toi?</p><p style="color:rgb(235, 235, 235)">Moi: Ouais.. j'imagine?</p><p style="color:rgb(242, 51, 25)">Punch: Si ça peut te consoler, c'est le cas d'une de mes amies. Elle a même acheté une stupide bague avec un fragment de café, probablement pour se sentir plus qu'elle a une espèce de connection avec ton groupe ou je sais pas.</p> <<if setup.PunchGirl_SandyInfo is 1>> 
+[["Elle est où ton amie?"|Punch_SandyAmi1][$sec = setup.seconds]] 
+<</if>><<if setup.PunchGirl_SandyInfo is 2>> 
+[["Rappelle-moi elle est où ton amie?"|SandyPunch_Am21][$sec = setup.seconds]] 
+<</if>><<if setup.PunchGirlInfo is false>> 
+[["Qu'est-ce que tu peux me dire sur Sodapolis?"|Punch_InfoSoda][$sec = setup.seconds]] <</if>><<if setup.PunchGirlInfo is true>> 
+[["Qu'est-ce que tu disais sur Sodapolis déjà?"|Punch_RepeatInfoSoda][$sec = setup.seconds]] <</if>> 
+[["Bon je te laisse à Human Crush"|Loge d'artiste][$sec = setup.seconds]] 
+</div> 
+</div> 
+Punch_SandyAmi1 
+<<set setup.PunchGirl to 1>> 
+<<set setup.C2 to "FruitPunch">> 
+<<set $seconds to $sec>> 
+<div class="container"> 
+<div class="Background"><<if setup.location is "Loge">> 
+<img src="./Images/Bkgd_Loge.png" class="Bkgd_img"> 
+<<elseif setup.location is "Bar">> 
+<img src="./Images/Bkgd_Bar.png" class="Bkgd_img"> 
+<<elseif setup.location is "Salle">> 
+<img src="./Images/Bkgd_Salle.png" class="Bkgd_img"> 
+<<elseif setup.location is "Lobby">> 
+<img src="./Images/Bkgd_Lobby.png" class="Bkgd_img"> 
+<<elseif setup.location is "Arcade">> 
+<img src="./Images/Bkgd_Arcade.png" class="Bkgd_img"> 
+<<elseif setup.location is "Musee">> 
+<img src="./Images/Bkgd_Musee.png" class="Bkgd_img"> 
+<</if>> 
+</div> 
+<div class="timer"><span id="countdown">$seconds sec</span>
+<<silently>> 
+<<repeat 1s>> 
+<<set $seconds to $seconds - 1>> 
+<<if $seconds gt 0>> 
+<<replace "#countdown">>$seconds sec<</replace>> 
+<<set setup.seconds to $seconds>> 
+<<else>> 
+<<goto "EndManager">> 
+<<set setup.seconds to $seconds>> 
+<<stop>> 
+<</if>> 
+<</repeat>> 
+<</silently>></div> 
+<div class="menu"><<if setup.tealvl is 0>><img src="./Images/Tea0.png" class="Knob_img"><<elseif setup.tealvl is 1>><img src="./Images/Tea1.png" class="Knob_img"><<elseif setup.tealvl is 2>><img src="./Images/Tea2.png" class="Knob_img"><<elseif setup.tealvl is 3>><img src="./Images/Tea3.png" class="Knob_img"><<elseif setup.tealvl is 4>><img src="./Images/Tea4.png" class="Knob_img"><</if>><<if setup.coffeelvl is 0>><img src="./Images/Coffee0.png" class="Knob_img"><<elseif setup.coffeelvl is 1>> <img src="./Images/Coffee1.png" class="Knob_img"><<elseif setup.coffeelvl is 2>><img src="./Images/Coffee2.png" class="Knob_img"><<elseif setup.coffeelvl is 3>><img src="./Images/Coffee3.png" class="Knob_img"><<elseif setup.coffeelvl is 4>><img src="./Images/Coffee4.png" class="Knob_img"><</if>><<link [img[./Images/Button.png][On with the story]]>><<goto "EndManager">><</link>></div> 
+<div class="C1"><<if setup.coffeelvl is 0>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_0_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_0_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_0_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_0_3.png" class="Char_img"> 
+<<elseif setup.tealvl is 4>> 
+<img src="./Images/Char_Rockstar_0_4.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 1>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_1_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>>
+<img src="./Images/Char_Rockstar_1_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_1_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_1_3.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 2>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_2_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_2_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_2_2.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 3>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_3_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_3_1.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 4>> 
+<img src="./Images/Char_Rockstar_4_0.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="C2"> 
+<<if setup.C2 is "Shifty">> 
+<img src="./Images/Char_Shifty.png" class="Char_img"> 
+<<elseif setup.C2 is "FakeArm">> 
+<img src="./Images/Char_FakeArm.png" class="Char_img"> 
+<<elseif setup.C2 is "FruitPunch">> 
+<img src="./Images/Char_FruitPunch.png" class="Char_img"> 
+<<elseif setup.C2 is "HighCoffee">> 
+<img src="./Images/Char_HighCoffee.png" class="Char_img"> 
+<<elseif setup.C2 is "JuiceBoxGirl">> 
+<img src="./Images/Char_JuiceBoxGirl.png" class="Char_img"> 
+<<elseif setup.C2 is "Security">> 
+<img src="./Images/Char_Security.png" class="Char_img"> 
+<<elseif setup.C2 is "SuitcaseMafia">> 
+<img src="./Images/Char_SuitcaseMafia.png" class="Char_img">
+<<elseif setup.C2 is "BarWoman">> 
+<img src="./Images/Char_BarWoman.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="textOpt"> 
+<p style="color:rgb(242, 51, 25)">Punch: Sandy pourquoi?</p><p style="color:rgb(235, 235, 235)">Moi: J'avais pensé lui offrir un autographe.</p><p style="color:rgb(242, 51, 25)">Punch: Elle est au bar, tu as un si grand coeur?</p><p style="color:rgb(235, 235, 235)">Moi : Oui quelque chose du genre</p> <<if setup.PunchGirl_SandyInfo is 2>> 
+[["Rappelle-moi elle est où ton amie?"|SandyPunch_Am21][$sec = setup.seconds]] <</if>><<if setup.PunchGirlInfo is false>> 
+[["Qu'est-ce que tu peux me dire sur Sodapolis?"|Punch_InfoSoda][$sec = setup.seconds]] <</if>><<if setup.PunchGirlInfo is true>> 
+[["Qu'est-ce que tu disais sur Sodapolis déjà?"|Punch_RepeatInfoSoda][$sec = setup.seconds]] <</if>> 
+[["Bon je te laisse à Human Crush"|Loge d'artiste][$sec = setup.seconds]] 
+</div> 
+</div> 
+SandyPunch_Am21 
+<<set setup.C2 to "FruitPunch">> 
+<<set $seconds to $sec>> 
+<div class="container"> 
+<div class="Background"><<if setup.location is "Loge">> 
+<img src="./Images/Bkgd_Loge.png" class="Bkgd_img"> 
+<<elseif setup.location is "Bar">> 
+<img src="./Images/Bkgd_Bar.png" class="Bkgd_img"> 
+<<elseif setup.location is "Salle">> 
+<img src="./Images/Bkgd_Salle.png" class="Bkgd_img"> 
+<<elseif setup.location is "Lobby">> 
+<img src="./Images/Bkgd_Lobby.png" class="Bkgd_img"> 
+<<elseif setup.location is "Arcade">> 
+<img src="./Images/Bkgd_Arcade.png" class="Bkgd_img"> 
+<<elseif setup.location is "Musee">> 
+<img src="./Images/Bkgd_Musee.png" class="Bkgd_img"> 
+<</if>> 
+</div>
+<div class="timer"><span id="countdown">$seconds sec</span> 
+<<silently>> 
+<<repeat 1s>> 
+<<set $seconds to $seconds - 1>> 
+<<if $seconds gt 0>> 
+<<replace "#countdown">>$seconds sec<</replace>> 
+<<set setup.seconds to $seconds>> 
+<<else>> 
+<<goto "EndManager">> 
+<<set setup.seconds to $seconds>> 
+<<stop>> 
+<</if>> 
+<</repeat>> 
+<</silently>></div> 
+<div class="menu"><<if setup.tealvl is 0>><img src="./Images/Tea0.png" class="Knob_img"><<elseif setup.tealvl is 1>><img src="./Images/Tea1.png" class="Knob_img"><<elseif setup.tealvl is 2>><img src="./Images/Tea2.png" class="Knob_img"><<elseif setup.tealvl is 3>><img src="./Images/Tea3.png" class="Knob_img"><<elseif setup.tealvl is 4>><img src="./Images/Tea4.png" class="Knob_img"><</if>><<if setup.coffeelvl is 0>><img src="./Images/Coffee0.png" class="Knob_img"><<elseif setup.coffeelvl is 1>> <img src="./Images/Coffee1.png" class="Knob_img"><<elseif setup.coffeelvl is 2>><img src="./Images/Coffee2.png" class="Knob_img"><<elseif setup.coffeelvl is 3>><img src="./Images/Coffee3.png" class="Knob_img"><<elseif setup.coffeelvl is 4>><img src="./Images/Coffee4.png" class="Knob_img"><</if>><<link [img[./Images/Button.png][On with the story]]>><<goto "EndManager">><</link>></div> 
+<div class="C1"><<if setup.coffeelvl is 0>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_0_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_0_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_0_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_0_3.png" class="Char_img"> 
+<<elseif setup.tealvl is 4>> 
+<img src="./Images/Char_Rockstar_0_4.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 1>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_1_0.png" class="Char_img">
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_1_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_1_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_1_3.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 2>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_2_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_2_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_2_2.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 3>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_3_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_3_1.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 4>> 
+<img src="./Images/Char_Rockstar_4_0.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="C2"> 
+<<if setup.C2 is "Shifty">> 
+<img src="./Images/Char_Shifty.png" class="Char_img"> 
+<<elseif setup.C2 is "FakeArm">> 
+<img src="./Images/Char_FakeArm.png" class="Char_img"> 
+<<elseif setup.C2 is "FruitPunch">> 
+<img src="./Images/Char_FruitPunch.png" class="Char_img"> 
+<<elseif setup.C2 is "HighCoffee">> 
+<img src="./Images/Char_HighCoffee.png" class="Char_img"> 
+<<elseif setup.C2 is "JuiceBoxGirl">> 
+<img src="./Images/Char_JuiceBoxGirl.png" class="Char_img"> 
+<<elseif setup.C2 is "Security">> 
+<img src="./Images/Char_Security.png" class="Char_img"> 
+<<elseif setup.C2 is "SuitcaseMafia">>
+<img src="./Images/Char_SuitcaseMafia.png" class="Char_img"> 
+<<elseif setup.C2 is "BarWoman">> 
+<img src="./Images/Char_BarWoman.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="textOpt"> 
+<p style="color:rgb(242, 51, 25)">Punch: Sandy.</p><p style="color:rgb(235, 235, 235)">Moi:Sandy?</p><p style="color:rgb(242, 51, 25)">Punch: Oui Sandy va la voir au bar si tu tiens tant à lui parler, je pense que c'est moi qui ait besoin d'un verre .</p> 
+<<if setup.PunchGirl_SandyInfo is 2>> 
+[["Rappelle-moi, comment elle s'appelle ton amie?"|SandyPunch_Am21][$sec = setup.seconds]] <</if>><<if setup.PunchGirlInfo is false>> 
+[["Qu'est-ce que tu peux me dire sur Sodapolis?"|Punch_InfoSoda][$sec = setup.seconds]] <</if>><<if setup.PunchGirlInfo is true>> 
+[["Qu'est-ce que tu disais sur Sodapolis déjà?"|Punch_RepeatInfoSoda][$sec = setup.seconds]] <</if>> 
+[["Bon je te laisse à Human Crush"|Loge d'artiste][$sec = setup.seconds]] 
+</div> 
+</div> 
+Punch_SandySawAmi2 
+<<set setup.PunchGirl to 2>> 
+<<set $seconds to $sec>> 
+<<set setup.C2 to "FruitPunch">> 
+<div class="container"> 
+<div class="Background"><<if setup.location is "Loge">> 
+<img src="./Images/Bkgd_Loge.png" class="Bkgd_img"> 
+<<elseif setup.location is "Bar">> 
+<img src="./Images/Bkgd_Bar.png" class="Bkgd_img"> 
+<<elseif setup.location is "Salle">> 
+<img src="./Images/Bkgd_Salle.png" class="Bkgd_img"> 
+<<elseif setup.location is "Lobby">> 
+<img src="./Images/Bkgd_Lobby.png" class="Bkgd_img"> 
+<<elseif setup.location is "Arcade">> 
+<img src="./Images/Bkgd_Arcade.png" class="Bkgd_img"> 
+<<elseif setup.location is "Musee">> 
+<img src="./Images/Bkgd_Musee.png" class="Bkgd_img"> 
+<</if>>
+</div> 
+<div class="timer"><span id="countdown">$seconds sec</span> 
+<<silently>> 
+<<repeat 1s>> 
+<<set $seconds to $seconds - 1>> 
+<<if $seconds gt 0>> 
+<<replace "#countdown">>$seconds sec<</replace>> 
+<<set setup.seconds to $seconds>> 
+<<else>> 
+<<goto "EndManager">> 
+<<set setup.seconds to $seconds>> 
+<<stop>> 
+<</if>> 
+<</repeat>> 
+<</silently>></div> 
+<div class="menu"><<if setup.tealvl is 0>><img src="./Images/Tea0.png" class="Knob_img"><<elseif setup.tealvl is 1>><img src="./Images/Tea1.png" class="Knob_img"><<elseif setup.tealvl is 2>><img src="./Images/Tea2.png" class="Knob_img"><<elseif setup.tealvl is 3>><img src="./Images/Tea3.png" class="Knob_img"><<elseif setup.tealvl is 4>><img src="./Images/Tea4.png" class="Knob_img"><</if>><<if setup.coffeelvl is 0>><img src="./Images/Coffee0.png" class="Knob_img"><<elseif setup.coffeelvl is 1>> <img src="./Images/Coffee1.png" class="Knob_img"><<elseif setup.coffeelvl is 2>><img src="./Images/Coffee2.png" class="Knob_img"><<elseif setup.coffeelvl is 3>><img src="./Images/Coffee3.png" class="Knob_img"><<elseif setup.coffeelvl is 4>><img src="./Images/Coffee4.png" class="Knob_img"><</if>><<link [img[./Images/Button.png][On with the story]]>><<goto "EndManager">><</link>></div> 
+<div class="C1"><<if setup.coffeelvl is 0>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_0_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_0_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_0_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_0_3.png" class="Char_img"> 
+<<elseif setup.tealvl is 4>> 
+<img src="./Images/Char_Rockstar_0_4.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 1>> 
+<<if setup.tealvl is 0>>
+<img src="./Images/Char_Rockstar_1_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_1_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_1_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_1_3.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 2>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_2_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_2_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_2_2.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 3>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_3_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_3_1.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 4>> 
+<img src="./Images/Char_Rockstar_4_0.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="C2"> 
+<<if setup.C2 is "Shifty">> 
+<img src="./Images/Char_Shifty.png" class="Char_img"> 
+<<elseif setup.C2 is "FakeArm">> 
+<img src="./Images/Char_FakeArm.png" class="Char_img"> 
+<<elseif setup.C2 is "FruitPunch">> 
+<img src="./Images/Char_FruitPunch.png" class="Char_img"> 
+<<elseif setup.C2 is "HighCoffee">> 
+<img src="./Images/Char_HighCoffee.png" class="Char_img"> 
+<<elseif setup.C2 is "JuiceBoxGirl">> 
+<img src="./Images/Char_JuiceBoxGirl.png" class="Char_img"> 
+<<elseif setup.C2 is "Security">> 
+<img src="./Images/Char_Security.png" class="Char_img">
+<<elseif setup.C2 is "SuitcaseMafia">> 
+<img src="./Images/Char_SuitcaseMafia.png" class="Char_img"> 
+<<elseif setup.C2 is "BarWoman">> 
+<img src="./Images/Char_BarWoman.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="textOpt"> 
+<p style="color:rgb(242, 51, 25)">Punch: Je sais pas, Garry a toujours été mon membre du groupe préféré et je suppose je vis le rêve, ou je m'ajuste à la réalité, un des deux.</p><p style="color:rgb(235, 235, 235)">Moi: Tu trouves vraiment que Garry est le meilleur membre du groupe?</p><p style="color:rgb(242, 51, 25)">Punch : T'aurais préféré que je dise que c'est toi?</p><p style="color:rgb(235, 235, 235)">Moi: Ouais.. j'imagine?</p><p style="color:rgb(242, 51, 25)">Punch: Si ça peut te consoler, c'est le cas d'une de mes amis. Elle a même acheté une stupide bague avec un fragment de café, probablement pour se sentir plus proche de toi ou je sais pas.</p><p style="color:rgb(235, 235, 235)">Moi: Ahh euhhh ouais il y a des gens comme ça je présume.</p><p style="color:rgb(242, 51, 25)">Punch: Attends de la voir et tu verra.</p><p style="color:rgb(235, 235, 235)">Moi: Exact j'attends... parce que je l'ai jamais vu.</p> <<if setup.PunchGirl_SandyInfo is 1>> 
+[["Elle est où ton amie?"|Punch_SandyAmi1][$sec = setup.seconds]] 
+<</if>><<if setup.PunchGirl_SandyInfo is 2>> 
+[["Rappelle-moi elle est où ton amie?"|SandyPunch_Am21][$sec = setup.seconds]] 
+<</if>><<if setup.PunchGirlInfo is false>> 
+[["Qu'est-ce que tu peux me dire sur Sodapolis?"|Punch_InfoSoda][$sec = setup.seconds]] <</if>><<if setup.PunchGirlInfo is true>> 
+[["Qu'est-ce que tu disais sur Sodapolis déjà?"|Punch_RepeatInfoSoda][$sec = setup.seconds]] <</if>> 
+[["Bon je te laisse à Human Crush"|Loge d'artiste][$sec = setup.seconds]] 
+</div> 
+</div> 
+Bar_CindyIntro 
+<<set $seconds to $sec>> 
+<<set setup.C2 to "JuiceBoxGirl">> 
+<div class="container"> 
+<div class="Background"><<if setup.location is "Loge">> 
+<img src="./Images/Bkgd_Loge.png" class="Bkgd_img"> 
+<<elseif setup.location is "Bar">> 
+<img src="./Images/Bkgd_Bar.png" class="Bkgd_img"> 
+<<elseif setup.location is "Salle">>
+<img src="./Images/Bkgd_Salle.png" class="Bkgd_img"> 
+<<elseif setup.location is "Lobby">> 
+<img src="./Images/Bkgd_Lobby.png" class="Bkgd_img"> 
+<<elseif setup.location is "Arcade">> 
+<img src="./Images/Bkgd_Arcade.png" class="Bkgd_img"> 
+<<elseif setup.location is "Musee">> 
+<img src="./Images/Bkgd_Musee.png" class="Bkgd_img"> 
+<</if>> 
+</div> 
+<div class="timer"><span id="countdown">$seconds sec</span> 
+<<silently>> 
+<<repeat 1s>> 
+<<set $seconds to $seconds - 1>> 
+<<if $seconds gt 0>> 
+<<replace "#countdown">>$seconds sec<</replace>> 
+<<set setup.seconds to $seconds>> 
+<<else>> 
+<<goto "EndManager">> 
+<<set setup.seconds to $seconds>> 
+<<stop>> 
+<</if>> 
+<</repeat>> 
+<</silently>></div> 
+<div class="menu"><<if setup.tealvl is 0>><img src="./Images/Tea0.png" class="Knob_img"><<elseif setup.tealvl is 1>><img src="./Images/Tea1.png" class="Knob_img"><<elseif setup.tealvl is 2>><img src="./Images/Tea2.png" class="Knob_img"><<elseif setup.tealvl is 3>><img src="./Images/Tea3.png" class="Knob_img"><<elseif setup.tealvl is 4>><img src="./Images/Tea4.png" class="Knob_img"><</if>><<if setup.coffeelvl is 0>><img src="./Images/Coffee0.png" class="Knob_img"><<elseif setup.coffeelvl is 1>> <img src="./Images/Coffee1.png" class="Knob_img"><<elseif setup.coffeelvl is 2>><img src="./Images/Coffee2.png" class="Knob_img"><<elseif setup.coffeelvl is 3>><img src="./Images/Coffee3.png" class="Knob_img"><<elseif setup.coffeelvl is 4>><img src="./Images/Coffee4.png" class="Knob_img"><</if>><<link [img[./Images/Button.png][On with the story]]>><<goto "EndManager">><</link>></div> 
+<div class="C1"><<if setup.coffeelvl is 0>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_0_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_0_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>>
+<img src="./Images/Char_Rockstar_0_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_0_3.png" class="Char_img"> 
+<<elseif setup.tealvl is 4>> 
+<img src="./Images/Char_Rockstar_0_4.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 1>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_1_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_1_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_1_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_1_3.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 2>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_2_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_2_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_2_2.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 3>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_3_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_3_1.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 4>> 
+<img src="./Images/Char_Rockstar_4_0.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="C2"> 
+<<if setup.C2 is "Shifty">> 
+<img src="./Images/Char_Shifty.png" class="Char_img"> 
+<<elseif setup.C2 is "FakeArm">> 
+<img src="./Images/Char_FakeArm.png" class="Char_img">
+<<elseif setup.C2 is "FruitPunch">> 
+<img src="./Images/Char_FruitPunch.png" class="Char_img"> 
+<<elseif setup.C2 is "HighCoffee">> 
+<img src="./Images/Char_HighCoffee.png" class="Char_img"> 
+<<elseif setup.C2 is "JuiceBoxGirl">> 
+<img src="./Images/Char_JuiceBoxGirl.png" class="Char_img"> 
+<<elseif setup.C2 is "Security">> 
+<img src="./Images/Char_Security.png" class="Char_img"> 
+<<elseif setup.C2 is "SuitcaseMafia">> 
+<img src="./Images/Char_SuitcaseMafia.png" class="Char_img"> 
+<<elseif setup.C2 is "BarWoman">> 
+<img src="./Images/Char_BarWoman.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="textOpt"> 
+Je m'approche de la jeune jus d'orange. Je la regarde dans le vide pour un instant puis jette un coup d'oeil sur le fragment de café qui est sur sa bague. 
+<<if setup.SandyEventOver is false>> 
+[["Ce bar ne mérite pas une jus d'orange comme toi"|Bar_CindyIntro1_1][$sec = setup.seconds]] <</if>><<if setup.SandyEventOver is false>> 
+[["Cette place est libre?"|Bar_CindyIntro1_2][$sec = setup.seconds]] 
+<</if>><<if setup.SandyEventOver is false>> 
+[["Qu'est-ce qui vous emmène à Sodapolis?"|Bar_CindyIntro1_3][$sec = setup.seconds]] <</if>> 
+[["Je dois retourner au bar, je reviens"|Bar][$sec = setup.seconds]] 
+</div> 
+</div> 
+Bar_Barman 
+<<set setup.SandyState to 2>> 
+<<set setup.C2 to "BarWoman">> 
+<<set $seconds to $sec>> 
+<div class="container"> 
+<div class="Background"><<if setup.location is "Loge">> 
+<img src="./Images/Bkgd_Loge.png" class="Bkgd_img"> 
+<<elseif setup.location is "Bar">> 
+<img src="./Images/Bkgd_Bar.png" class="Bkgd_img"> 
+<<elseif setup.location is "Salle">>
+<img src="./Images/Bkgd_Salle.png" class="Bkgd_img"> 
+<<elseif setup.location is "Lobby">> 
+<img src="./Images/Bkgd_Lobby.png" class="Bkgd_img"> 
+<<elseif setup.location is "Arcade">> 
+<img src="./Images/Bkgd_Arcade.png" class="Bkgd_img"> 
+<<elseif setup.location is "Musee">> 
+<img src="./Images/Bkgd_Musee.png" class="Bkgd_img"> 
+<</if>> 
+</div> 
+<div class="timer"><span id="countdown">$seconds sec</span> 
+<<silently>> 
+<<repeat 1s>> 
+<<set $seconds to $seconds - 1>> 
+<<if $seconds gt 0>> 
+<<replace "#countdown">>$seconds sec<</replace>> 
+<<set setup.seconds to $seconds>> 
+<<else>> 
+<<goto "EndManager">> 
+<<set setup.seconds to $seconds>> 
+<<stop>> 
+<</if>> 
+<</repeat>> 
+<</silently>></div> 
+<div class="menu"><<if setup.tealvl is 0>><img src="./Images/Tea0.png" class="Knob_img"><<elseif setup.tealvl is 1>><img src="./Images/Tea1.png" class="Knob_img"><<elseif setup.tealvl is 2>><img src="./Images/Tea2.png" class="Knob_img"><<elseif setup.tealvl is 3>><img src="./Images/Tea3.png" class="Knob_img"><<elseif setup.tealvl is 4>><img src="./Images/Tea4.png" class="Knob_img"><</if>><<if setup.coffeelvl is 0>><img src="./Images/Coffee0.png" class="Knob_img"><<elseif setup.coffeelvl is 1>> <img src="./Images/Coffee1.png" class="Knob_img"><<elseif setup.coffeelvl is 2>><img src="./Images/Coffee2.png" class="Knob_img"><<elseif setup.coffeelvl is 3>><img src="./Images/Coffee3.png" class="Knob_img"><<elseif setup.coffeelvl is 4>><img src="./Images/Coffee4.png" class="Knob_img"><</if>><<link [img[./Images/Button.png][On with the story]]>><<goto "EndManager">><</link>></div> 
+<div class="C1"><<if setup.coffeelvl is 0>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_0_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_0_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>>
+<img src="./Images/Char_Rockstar_0_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_0_3.png" class="Char_img"> 
+<<elseif setup.tealvl is 4>> 
+<img src="./Images/Char_Rockstar_0_4.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 1>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_1_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_1_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_1_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_1_3.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 2>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_2_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_2_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_2_2.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 3>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_3_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_3_1.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 4>> 
+<img src="./Images/Char_Rockstar_4_0.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="C2"> 
+<<if setup.C2 is "Shifty">> 
+<img src="./Images/Char_Shifty.png" class="Char_img"> 
+<<elseif setup.C2 is "FakeArm">> 
+<img src="./Images/Char_FakeArm.png" class="Char_img">
+<<elseif setup.C2 is "FruitPunch">> 
+<img src="./Images/Char_FruitPunch.png" class="Char_img"> 
+<<elseif setup.C2 is "HighCoffee">> 
+<img src="./Images/Char_HighCoffee.png" class="Char_img"> 
+<<elseif setup.C2 is "JuiceBoxGirl">> 
+<img src="./Images/Char_JuiceBoxGirl.png" class="Char_img"> 
+<<elseif setup.C2 is "Security">> 
+<img src="./Images/Char_Security.png" class="Char_img"> 
+<<elseif setup.C2 is "SuitcaseMafia">> 
+<img src="./Images/Char_SuitcaseMafia.png" class="Char_img"> 
+<<elseif setup.C2 is "BarWoman">> 
+<img src="./Images/Char_BarWoman.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="textOpt"> 
+La bartender est seule et fait et défait une série de drinks à base d'amandes. <<if setup.BoissonVege is false>> 
+[["Vous avez quoi à boire ici?"|Bar_Vege][$sec = setup.seconds]] 
+<</if>> 
+[["Tu peux me dire quoi sur la fille dans le fond?"|Bar_InfoSandy][$sec = setup.seconds]] [["Je vous laisse travailler"|Bar][$sec = setup.seconds]] 
+</div> 
+</div> 
+Bar_CindyIntro1_1 
+<<set setup.SandyState to 4>> 
+<<set $seconds to $sec>> 
+<<set setup.C2 to "JuiceBoxGirl">> 
+<div class="container"> 
+<div class="Background"><<if setup.location is "Loge">> 
+<img src="./Images/Bkgd_Loge.png" class="Bkgd_img"> 
+<<elseif setup.location is "Bar">> 
+<img src="./Images/Bkgd_Bar.png" class="Bkgd_img"> 
+<<elseif setup.location is "Salle">> 
+<img src="./Images/Bkgd_Salle.png" class="Bkgd_img"> 
+<<elseif setup.location is "Lobby">> 
+<img src="./Images/Bkgd_Lobby.png" class="Bkgd_img"> 
+<<elseif setup.location is "Arcade">>
+<img src="./Images/Bkgd_Arcade.png" class="Bkgd_img"> 
+<<elseif setup.location is "Musee">> 
+<img src="./Images/Bkgd_Musee.png" class="Bkgd_img"> 
+<</if>> 
+</div> 
+<div class="timer"><span id="countdown">$seconds sec</span> 
+<<silently>> 
+<<repeat 1s>> 
+<<set $seconds to $seconds - 1>> 
+<<if $seconds gt 0>> 
+<<replace "#countdown">>$seconds sec<</replace>> 
+<<set setup.seconds to $seconds>> 
+<<else>> 
+<<goto "EndManager">> 
+<<set setup.seconds to $seconds>> 
+<<stop>> 
+<</if>> 
+<</repeat>> 
+<</silently>></div> 
+<div class="menu"><<if setup.tealvl is 0>><img src="./Images/Tea0.png" class="Knob_img"><<elseif setup.tealvl is 1>><img src="./Images/Tea1.png" class="Knob_img"><<elseif setup.tealvl is 2>><img src="./Images/Tea2.png" class="Knob_img"><<elseif setup.tealvl is 3>><img src="./Images/Tea3.png" class="Knob_img"><<elseif setup.tealvl is 4>><img src="./Images/Tea4.png" class="Knob_img"><</if>><<if setup.coffeelvl is 0>><img src="./Images/Coffee0.png" class="Knob_img"><<elseif setup.coffeelvl is 1>> <img src="./Images/Coffee1.png" class="Knob_img"><<elseif setup.coffeelvl is 2>><img src="./Images/Coffee2.png" class="Knob_img"><<elseif setup.coffeelvl is 3>><img src="./Images/Coffee3.png" class="Knob_img"><<elseif setup.coffeelvl is 4>><img src="./Images/Coffee4.png" class="Knob_img"><</if>><<link [img[./Images/Button.png][On with the story]]>><<goto "EndManager">><</link>></div> 
+<div class="C1"><<if setup.coffeelvl is 0>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_0_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_0_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_0_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_0_3.png" class="Char_img"> 
+<<elseif setup.tealvl is 4>>
+<img src="./Images/Char_Rockstar_0_4.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 1>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_1_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_1_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_1_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_1_3.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 2>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_2_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_2_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_2_2.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 3>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_3_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_3_1.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 4>> 
+<img src="./Images/Char_Rockstar_4_0.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="C2"> 
+<<if setup.C2 is "Shifty">> 
+<img src="./Images/Char_Shifty.png" class="Char_img"> 
+<<elseif setup.C2 is "FakeArm">> 
+<img src="./Images/Char_FakeArm.png" class="Char_img"> 
+<<elseif setup.C2 is "FruitPunch">> 
+<img src="./Images/Char_FruitPunch.png" class="Char_img"> 
+<<elseif setup.C2 is "HighCoffee">> 
+<img src="./Images/Char_HighCoffee.png" class="Char_img">
+<<elseif setup.C2 is "JuiceBoxGirl">> 
+<img src="./Images/Char_JuiceBoxGirl.png" class="Char_img"> 
+<<elseif setup.C2 is "Security">> 
+<img src="./Images/Char_Security.png" class="Char_img"> 
+<<elseif setup.C2 is "SuitcaseMafia">> 
+<img src="./Images/Char_SuitcaseMafia.png" class="Char_img"> 
+<<elseif setup.C2 is "BarWoman">> 
+<img src="./Images/Char_BarWoman.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="textOpt"> 
+Je m'approche et relève mes lunettes de soleil pour révéler mon identité. Elle me regarde avec un sourire débordant. 
+<p style="color:rgb(242, 101, 34)">Jeune Jus d'Orange: (rigole) : C'est flatteur, et que fait un café comme vous dans une city comme celle-ci.</p><p style="color:rgb(235, 235, 235)">Moi: Tu n'avais pas une petite idée?</p><p style="color:rgb(242, 101, 34)">Jeune Jus d'Orange: Plus qu'une petite idée. Au fait je m'appelle...</p><p style="color:rgb(235, 235, 235)">Moi: Chut! Attends laisse-moi deviner.</p> <<if setup.SandyEventOver is false>> 
+[["Sandy"|Bar_CindyIntro2_right][$sec = setup.seconds]] 
+<</if>><<if setup.SandyEventOver is false>> 
+[["Brigite"|Bar_CindyIntro2_wrong][$sec = setup.seconds]] 
+<</if>><<if setup.SandyEventOver is false>> 
+[["Windy "|Bar_CindyIntro2_wrong][$sec = setup.seconds]] 
+<</if>> 
+[["Je dois retourner au bar, je reviens"|Bar][$sec = setup.seconds]] 
+</div> 
+</div> 
+Bar_CindyIntro1_2 
+<<set setup.SandyState to 4>> 
+<<set $seconds to $sec>> 
+<<set setup.C2 to "JuiceBoxGirl">> 
+<div class="container"> 
+<div class="Background"><<if setup.location is "Loge">> 
+<img src="./Images/Bkgd_Loge.png" class="Bkgd_img"> 
+<<elseif setup.location is "Bar">> 
+<img src="./Images/Bkgd_Bar.png" class="Bkgd_img"> 
+<<elseif setup.location is "Salle">>
+<img src="./Images/Bkgd_Salle.png" class="Bkgd_img"> 
+<<elseif setup.location is "Lobby">> 
+<img src="./Images/Bkgd_Lobby.png" class="Bkgd_img"> 
+<<elseif setup.location is "Arcade">> 
+<img src="./Images/Bkgd_Arcade.png" class="Bkgd_img"> 
+<<elseif setup.location is "Musee">> 
+<img src="./Images/Bkgd_Musee.png" class="Bkgd_img"> 
+<</if>> 
+</div> 
+<div class="timer"><span id="countdown">$seconds sec</span> 
+<<silently>> 
+<<repeat 1s>> 
+<<set $seconds to $seconds - 1>> 
+<<if $seconds gt 0>> 
+<<replace "#countdown">>$seconds sec<</replace>> 
+<<set setup.seconds to $seconds>> 
+<<else>> 
+<<goto "EndManager">> 
+<<set setup.seconds to $seconds>> 
+<<stop>> 
+<</if>> 
+<</repeat>> 
+<</silently>></div> 
+<div class="menu"><<if setup.tealvl is 0>><img src="./Images/Tea0.png" class="Knob_img"><<elseif setup.tealvl is 1>><img src="./Images/Tea1.png" class="Knob_img"><<elseif setup.tealvl is 2>><img src="./Images/Tea2.png" class="Knob_img"><<elseif setup.tealvl is 3>><img src="./Images/Tea3.png" class="Knob_img"><<elseif setup.tealvl is 4>><img src="./Images/Tea4.png" class="Knob_img"><</if>><<if setup.coffeelvl is 0>><img src="./Images/Coffee0.png" class="Knob_img"><<elseif setup.coffeelvl is 1>> <img src="./Images/Coffee1.png" class="Knob_img"><<elseif setup.coffeelvl is 2>><img src="./Images/Coffee2.png" class="Knob_img"><<elseif setup.coffeelvl is 3>><img src="./Images/Coffee3.png" class="Knob_img"><<elseif setup.coffeelvl is 4>><img src="./Images/Coffee4.png" class="Knob_img"><</if>><<link [img[./Images/Button.png][On with the story]]>><<goto "EndManager">><</link>></div> 
+<div class="C1"><<if setup.coffeelvl is 0>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_0_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_0_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>>
+<img src="./Images/Char_Rockstar_0_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_0_3.png" class="Char_img"> 
+<<elseif setup.tealvl is 4>> 
+<img src="./Images/Char_Rockstar_0_4.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 1>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_1_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_1_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_1_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_1_3.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 2>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_2_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_2_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_2_2.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 3>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_3_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_3_1.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 4>> 
+<img src="./Images/Char_Rockstar_4_0.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="C2"> 
+<<if setup.C2 is "Shifty">> 
+<img src="./Images/Char_Shifty.png" class="Char_img"> 
+<<elseif setup.C2 is "FakeArm">> 
+<img src="./Images/Char_FakeArm.png" class="Char_img">
+<<elseif setup.C2 is "FruitPunch">> 
+<img src="./Images/Char_FruitPunch.png" class="Char_img"> 
+<<elseif setup.C2 is "HighCoffee">> 
+<img src="./Images/Char_HighCoffee.png" class="Char_img"> 
+<<elseif setup.C2 is "JuiceBoxGirl">> 
+<img src="./Images/Char_JuiceBoxGirl.png" class="Char_img"> 
+<<elseif setup.C2 is "Security">> 
+<img src="./Images/Char_Security.png" class="Char_img"> 
+<<elseif setup.C2 is "SuitcaseMafia">> 
+<img src="./Images/Char_SuitcaseMafia.png" class="Char_img"> 
+<<elseif setup.C2 is "BarWoman">> 
+<img src="./Images/Char_BarWoman.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="textOpt"> 
+Je m'approche et relève mes lunettes de soleil pour révéler mon identité. Elle me regarde avec un sourire débordant. 
+<p style="color:rgb(242, 101, 34)">Jeune Jus d'Orange: (rigole) : Elle est très en demande je dois admettre mais j'imagine je pourrais vous laisser la prendre.</p><p style="color:rgb(235, 235, 235)">Moi: Quel honneur, je m'appelle Phill Tannin au fait. Je dis en sortant mon plus beau sourire.</p><p style="color:rgb(235, 235, 235)">Moi: Tu as peut-être entendu mon nom quelque part</p><p style="color:rgb(242, 101, 34)">Jeune Jus d'Orange: Quelque part oui, mais je ne veux pas briser votre effet de surprise. </p><p style="color:rgb(235, 235, 235)">Moi: Alors faisons comme si c'était la première fois. </p><p style="color:rgb(242, 101, 34)">Jeune Jus d'Orange: Je m'appelle..</p><p style="color:rgb(235, 235, 235)">Moi: laisse-moi l'honneur de deviner, j'ai un talent pour ça.</p> <<if setup.SandyEventOver is false>> 
+[["Sandy"|Bar_CindyIntro2_right][$sec = setup.seconds]] 
+<</if>><<if setup.SandyEventOver is false>> 
+[["Brigite"|Bar_CindyIntro2_wrong][$sec = setup.seconds]] 
+<</if>><<if setup.SandyEventOver is false>> 
+[["Windy "|Bar_CindyIntro2_wrong][$sec = setup.seconds]] 
+<</if>> 
+[["Je dois retourner au bar, je reviens"|Bar][$sec = setup.seconds]] 
+</div> 
+</div> 
+Bar_CindyIntro1_3
+<<set $seconds to $sec>> 
+<<set setup.C2 to "JuiceBoxGirl">> 
+<div class="container"> 
+<div class="Background"><<if setup.location is "Loge">> 
+<img src="./Images/Bkgd_Loge.png" class="Bkgd_img"> 
+<<elseif setup.location is "Bar">> 
+<img src="./Images/Bkgd_Bar.png" class="Bkgd_img"> 
+<<elseif setup.location is "Salle">> 
+<img src="./Images/Bkgd_Salle.png" class="Bkgd_img"> 
+<<elseif setup.location is "Lobby">> 
+<img src="./Images/Bkgd_Lobby.png" class="Bkgd_img"> 
+<<elseif setup.location is "Arcade">> 
+<img src="./Images/Bkgd_Arcade.png" class="Bkgd_img"> 
+<<elseif setup.location is "Musee">> 
+<img src="./Images/Bkgd_Musee.png" class="Bkgd_img"> 
+<</if>> 
+</div> 
+<div class="timer"><span id="countdown">$seconds sec</span> 
+<<silently>> 
+<<repeat 1s>> 
+<<set $seconds to $seconds - 1>> 
+<<if $seconds gt 0>> 
+<<replace "#countdown">>$seconds sec<</replace>> 
+<<set setup.seconds to $seconds>> 
+<<else>> 
+<<goto "EndManager">> 
+<<set setup.seconds to $seconds>> 
+<<stop>> 
+<</if>> 
+<</repeat>> 
+<</silently>></div> 
+<div class="menu"><<if setup.tealvl is 0>><img src="./Images/Tea0.png" class="Knob_img"><<elseif setup.tealvl is 1>><img src="./Images/Tea1.png" class="Knob_img"><<elseif setup.tealvl is 2>><img src="./Images/Tea2.png" class="Knob_img"><<elseif setup.tealvl is 3>><img src="./Images/Tea3.png" class="Knob_img"><<elseif setup.tealvl is 4>><img src="./Images/Tea4.png" class="Knob_img"><</if>><<if setup.coffeelvl is 0>><img src="./Images/Coffee0.png" class="Knob_img"><<elseif setup.coffeelvl is 1>> <img src="./Images/Coffee1.png" class="Knob_img"><<elseif setup.coffeelvl is 2>><img src="./Images/Coffee2.png" class="Knob_img"><<elseif setup.coffeelvl is 3>><img src="./Images/Coffee3.png" class="Knob_img"><<elseif setup.coffeelvl is 4>><img
+src="./Images/Coffee4.png" class="Knob_img"><</if>><<link [img[./Images/Button.png][On with the story]]>><<goto "EndManager">><</link>></div> 
+<div class="C1"><<if setup.coffeelvl is 0>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_0_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_0_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_0_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_0_3.png" class="Char_img"> 
+<<elseif setup.tealvl is 4>> 
+<img src="./Images/Char_Rockstar_0_4.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 1>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_1_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_1_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_1_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_1_3.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 2>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_2_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_2_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_2_2.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 3>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_3_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_3_1.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 4>>
+<img src="./Images/Char_Rockstar_4_0.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="C2"> 
+<<if setup.C2 is "Shifty">> 
+<img src="./Images/Char_Shifty.png" class="Char_img"> 
+<<elseif setup.C2 is "FakeArm">> 
+<img src="./Images/Char_FakeArm.png" class="Char_img"> 
+<<elseif setup.C2 is "FruitPunch">> 
+<img src="./Images/Char_FruitPunch.png" class="Char_img"> 
+<<elseif setup.C2 is "HighCoffee">> 
+<img src="./Images/Char_HighCoffee.png" class="Char_img"> 
+<<elseif setup.C2 is "JuiceBoxGirl">> 
+<img src="./Images/Char_JuiceBoxGirl.png" class="Char_img"> 
+<<elseif setup.C2 is "Security">> 
+<img src="./Images/Char_Security.png" class="Char_img"> 
+<<elseif setup.C2 is "SuitcaseMafia">> 
+<img src="./Images/Char_SuitcaseMafia.png" class="Char_img"> 
+<<elseif setup.C2 is "BarWoman">> 
+<img src="./Images/Char_BarWoman.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="textOpt"> 
+Je m'approche et relève mes lunettes de soleil pour révéler mon identité. Elle me regarde avec un sourire débordant. 
+<p style="color:rgb(242, 101, 34)">Jeune Jus d'Orange: (rigole) : Vous principalement.</p><p style="color:rgb(235, 235, 235)">Moi: Intéressant, je m'appelle Phill Tannin au fait. Tu as peut-être entendu mon nom quelque part</p><p style="color:rgb(242, 101, 34)">Jeune Jus d'Orange: Quelque part oui, mais je ne veux pas briser votre effet de surprise. </p><p style="color:rgb(235, 235, 235)">Moi: Alors faisons comme si c'était la première fois. Mais laisse moi deviner ton nom, J'ai un don pour ça, je suis sûre que tu t'appelles...</p> 
+<<if setup.SandyEventOver is false>> 
+[["Sandy"|Bar_CindyIntro2_right][$sec = setup.seconds]] 
+<</if>><<if setup.SandyEventOver is false>> 
+[["Brigite"|Bar_CindyIntro2_wrong][$sec = setup.seconds]] 
+<</if>><<if setup.SandyEventOver is false>> 
+[["Windy "|Bar_CindyIntro2_wrong][$sec = setup.seconds]] 
+<</if>> 
+[["Je dois retourner au bar, je reviens"|Bar][$sec = setup.seconds]]
+</div> 
+</div> 
+Bar_CindyIntro2_right 
+<<set setup.SandyState to 1>> 
+<<set setup.C2 to "JuiceBoxGirl">> 
+<<set setup.SandyPoint to setup.SandyPoint+1>> 
+<<set $seconds to $sec>> 
+<div class="container"> 
+<div class="Background"><<if setup.location is "Loge">> 
+<img src="./Images/Bkgd_Loge.png" class="Bkgd_img"> 
+<<elseif setup.location is "Bar">> 
+<img src="./Images/Bkgd_Bar.png" class="Bkgd_img"> 
+<<elseif setup.location is "Salle">> 
+<img src="./Images/Bkgd_Salle.png" class="Bkgd_img"> 
+<<elseif setup.location is "Lobby">> 
+<img src="./Images/Bkgd_Lobby.png" class="Bkgd_img"> 
+<<elseif setup.location is "Arcade">> 
+<img src="./Images/Bkgd_Arcade.png" class="Bkgd_img"> 
+<<elseif setup.location is "Musee">> 
+<img src="./Images/Bkgd_Musee.png" class="Bkgd_img"> 
+<</if>> 
+</div> 
+<div class="timer"><span id="countdown">$seconds sec</span> 
+<<silently>> 
+<<repeat 1s>> 
+<<set $seconds to $seconds - 1>> 
+<<if $seconds gt 0>> 
+<<replace "#countdown">>$seconds sec<</replace>> 
+<<set setup.seconds to $seconds>> 
+<<else>> 
+<<goto "EndManager">> 
+<<set setup.seconds to $seconds>> 
+<<stop>> 
+<</if>> 
+<</repeat>> 
+<</silently>></div> 
+<div class="menu"><<if setup.tealvl is 0>><img src="./Images/Tea0.png" class="Knob_img"><<elseif
+setup.tealvl is 1>><img src="./Images/Tea1.png" class="Knob_img"><<elseif setup.tealvl is 2>><img src="./Images/Tea2.png" class="Knob_img"><<elseif setup.tealvl is 3>><img src="./Images/Tea3.png" class="Knob_img"><<elseif setup.tealvl is 4>><img src="./Images/Tea4.png" class="Knob_img"><</if>><<if setup.coffeelvl is 0>><img src="./Images/Coffee0.png" class="Knob_img"><<elseif setup.coffeelvl is 1>> <img src="./Images/Coffee1.png" class="Knob_img"><<elseif setup.coffeelvl is 2>><img src="./Images/Coffee2.png" class="Knob_img"><<elseif setup.coffeelvl is 3>><img src="./Images/Coffee3.png" class="Knob_img"><<elseif setup.coffeelvl is 4>><img src="./Images/Coffee4.png" class="Knob_img"><</if>><<link [img[./Images/Button.png][On with the story]]>><<goto "EndManager">><</link>></div> 
+<div class="C1"><<if setup.coffeelvl is 0>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_0_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_0_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_0_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_0_3.png" class="Char_img"> 
+<<elseif setup.tealvl is 4>> 
+<img src="./Images/Char_Rockstar_0_4.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 1>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_1_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_1_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_1_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_1_3.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 2>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_2_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_2_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_2_2.png" class="Char_img"> 
+<</if>>
+<<elseif setup.coffeelvl is 3>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_3_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_3_1.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 4>> 
+<img src="./Images/Char_Rockstar_4_0.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="C2"> 
+<<if setup.C2 is "Shifty">> 
+<img src="./Images/Char_Shifty.png" class="Char_img"> 
+<<elseif setup.C2 is "FakeArm">> 
+<img src="./Images/Char_FakeArm.png" class="Char_img"> 
+<<elseif setup.C2 is "FruitPunch">> 
+<img src="./Images/Char_FruitPunch.png" class="Char_img"> 
+<<elseif setup.C2 is "HighCoffee">> 
+<img src="./Images/Char_HighCoffee.png" class="Char_img"> 
+<<elseif setup.C2 is "JuiceBoxGirl">> 
+<img src="./Images/Char_JuiceBoxGirl.png" class="Char_img"> 
+<<elseif setup.C2 is "Security">> 
+<img src="./Images/Char_Security.png" class="Char_img"> 
+<<elseif setup.C2 is "SuitcaseMafia">> 
+<img src="./Images/Char_SuitcaseMafia.png" class="Char_img"> 
+<<elseif setup.C2 is "BarWoman">> 
+<img src="./Images/Char_BarWoman.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="textOpt"> 
+<p style="color:rgb(242, 101, 34)">Jeune Jus d'Orange: (rigole) : Ouais, mon dieu vous êtes fantastique. </p><p style="color:rgb(235, 235, 235)">Moi: J'y peux rien, je suis débordé de talent. Alors dis-moi as tu un monsieur jus d'orange qui t'attends dans ton coin. </p><p style="color:rgb(242, 101, 34)">Jeune Jus d'Orange: Non je suis tout à fait disponible. </p><p style="color:rgb(235, 235, 235)">Moi: Étonnant. </p><p style="color:rgb(242, 101, 34)">Jeune Jus d'orange: Comment ça?</p> 
+<<if setup.SandyEventOver is false>> 
+[["Disons je sais que j'ai une soudaine envie d'une dose de vitamine C"|Bar_CindyIntro3_1][$sec = setup.seconds]] 
+<</if>><<if setup.SandyEventOver is false>>
+[["Parce que tu es comme un soleil"|Bar_CindyIntro3_2][$sec = setup.seconds]] <</if>><<if setup.SandyEventOver is false>> 
+[["Tu sembles comme quelqu'un de bien."|Bar_CindyIntro3_3][$sec = setup.seconds]] <</if>> 
+[["Je dois retourner au bar, je reviens"|Bar][$sec = setup.seconds]] </div> 
+</div> 
+Bar_CindyIntro2_wrong 
+<<set setup.SandyState to 1>> 
+<<set setup.C2 to "JuiceBoxGirl">> 
+<<set $seconds to $sec>> 
+<div class="container"> 
+<div class="Background"><<if setup.location is "Loge">> 
+<img src="./Images/Bkgd_Loge.png" class="Bkgd_img"> 
+<<elseif setup.location is "Bar">> 
+<img src="./Images/Bkgd_Bar.png" class="Bkgd_img"> 
+<<elseif setup.location is "Salle">> 
+<img src="./Images/Bkgd_Salle.png" class="Bkgd_img"> 
+<<elseif setup.location is "Lobby">> 
+<img src="./Images/Bkgd_Lobby.png" class="Bkgd_img"> 
+<<elseif setup.location is "Arcade">> 
+<img src="./Images/Bkgd_Arcade.png" class="Bkgd_img"> 
+<<elseif setup.location is "Musee">> 
+<img src="./Images/Bkgd_Musee.png" class="Bkgd_img"> 
+<</if>> 
+</div> 
+<div class="timer"><span id="countdown">$seconds sec</span> 
+<<silently>> 
+<<repeat 1s>> 
+<<set $seconds to $seconds - 1>> 
+<<if $seconds gt 0>> 
+<<replace "#countdown">>$seconds sec<</replace>> 
+<<set setup.seconds to $seconds>> 
+<<else>> 
+<<goto "EndManager">> 
+<<set setup.seconds to $seconds>> 
+<<stop>>
+<</if>> 
+<</repeat>> 
+<</silently>></div> 
+<div class="menu"><<if setup.tealvl is 0>><img src="./Images/Tea0.png" class="Knob_img"><<elseif setup.tealvl is 1>><img src="./Images/Tea1.png" class="Knob_img"><<elseif setup.tealvl is 2>><img src="./Images/Tea2.png" class="Knob_img"><<elseif setup.tealvl is 3>><img src="./Images/Tea3.png" class="Knob_img"><<elseif setup.tealvl is 4>><img src="./Images/Tea4.png" class="Knob_img"><</if>><<if setup.coffeelvl is 0>><img src="./Images/Coffee0.png" class="Knob_img"><<elseif setup.coffeelvl is 1>> <img src="./Images/Coffee1.png" class="Knob_img"><<elseif setup.coffeelvl is 2>><img src="./Images/Coffee2.png" class="Knob_img"><<elseif setup.coffeelvl is 3>><img src="./Images/Coffee3.png" class="Knob_img"><<elseif setup.coffeelvl is 4>><img src="./Images/Coffee4.png" class="Knob_img"><</if>><<link [img[./Images/Button.png][On with the story]]>><<goto "EndManager">><</link>></div> 
+<div class="C1"><<if setup.coffeelvl is 0>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_0_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_0_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_0_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_0_3.png" class="Char_img"> 
+<<elseif setup.tealvl is 4>> 
+<img src="./Images/Char_Rockstar_0_4.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 1>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_1_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_1_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_1_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_1_3.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 2>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_2_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>>
+<img src="./Images/Char_Rockstar_2_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_2_2.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 3>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_3_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_3_1.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 4>> 
+<img src="./Images/Char_Rockstar_4_0.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="C2"> 
+<<if setup.C2 is "Shifty">> 
+<img src="./Images/Char_Shifty.png" class="Char_img"> 
+<<elseif setup.C2 is "FakeArm">> 
+<img src="./Images/Char_FakeArm.png" class="Char_img"> 
+<<elseif setup.C2 is "FruitPunch">> 
+<img src="./Images/Char_FruitPunch.png" class="Char_img"> 
+<<elseif setup.C2 is "HighCoffee">> 
+<img src="./Images/Char_HighCoffee.png" class="Char_img"> 
+<<elseif setup.C2 is "JuiceBoxGirl">> 
+<img src="./Images/Char_JuiceBoxGirl.png" class="Char_img"> 
+<<elseif setup.C2 is "Security">> 
+<img src="./Images/Char_Security.png" class="Char_img"> 
+<<elseif setup.C2 is "SuitcaseMafia">> 
+<img src="./Images/Char_SuitcaseMafia.png" class="Char_img"> 
+<<elseif setup.C2 is "BarWoman">> 
+<img src="./Images/Char_BarWoman.png" class="Char_img"> 
+<</if>> 
+</div> 
+<div class="textOpt"> 
+<p style="color:rgb(242, 101, 34)">Jeune Jus d'Orange : C'est exactement... pas ça. Je suis Sandy, mais c'est pas grave.</p><p style="color:rgb(235, 235, 235)">Moi: Pardon, alors dis-moi as-tu un monsieur jus d'orange qui t'attends dans ton coin. </p><p style="color:rgb(242, 101, 34)">Jeune Jus d'Orange: Non je suis tout à fait disponible. </p><p style="color:rgb(235, 235, 235)">Moi: Étonnant.</p><p style="color:rgb(242, 101, 34)">Jeune Jus d'orange: Comment ça?</p>
+<<if setup.SandyEventOver is false>> 
+[["Disons je sais que j'ai une soudaine envie d'une dose de vitamine C"|Bar_CindyIntro3_1][$sec = setup.seconds]] 
+<</if>><<if setup.SandyEventOver is false>> 
+[["Parce que tu es comme un soleil"|Bar_CindyIntro3_2][$sec = setup.seconds]] <</if>><<if setup.SandyEventOver is false>> 
+[["Tu sembles comme quelqu'un de bien."|Bar_CindyIntro3_3][$sec = setup.seconds]] <</if>> 
+[["Je dois retourner au bar, je reviens"|Bar][$sec = setup.seconds]] 
+</div> 
+</div> 
+Bar_CindyIntro3_1 
+<<set $seconds to $sec>> 
+<<set setup.C2 to "JuiceBoxGirl">> 
+<div class="container"> 
+<div class="Background"><<if setup.location is "Loge">> 
+<img src="./Images/Bkgd_Loge.png" class="Bkgd_img"> 
+<<elseif setup.location is "Bar">> 
+<img src="./Images/Bkgd_Bar.png" class="Bkgd_img"> 
+<<elseif setup.location is "Salle">> 
+<img src="./Images/Bkgd_Salle.png" class="Bkgd_img"> 
+<<elseif setup.location is "Lobby">> 
+<img src="./Images/Bkgd_Lobby.png" class="Bkgd_img"> 
+<<elseif setup.location is "Arcade">> 
+<img src="./Images/Bkgd_Arcade.png" class="Bkgd_img"> 
+<<elseif setup.location is "Musee">> 
+<img src="./Images/Bkgd_Musee.png" class="Bkgd_img"> 
+<</if>> 
+</div> 
+<div class="timer"><span id="countdown">$seconds sec</span> 
+<<silently>> 
+<<repeat 1s>> 
+<<set $seconds to $seconds - 1>> 
+<<if $seconds gt 0>> 
+<<replace "#countdown">>$seconds sec<</replace>> 
+<<set setup.seconds to $seconds>> 
+<<else>>
+<<goto "EndManager">> 
+<<set setup.seconds to $seconds>> 
+<<stop>> 
+<</if>> 
+<</repeat>> 
+<</silently>></div> 
+<div class="menu"><<if setup.tealvl is 0>><img src="./Images/Tea0.png" class="Knob_img"><<elseif setup.tealvl is 1>><img src="./Images/Tea1.png" class="Knob_img"><<elseif setup.tealvl is 2>><img src="./Images/Tea2.png" class="Knob_img"><<elseif setup.tealvl is 3>><img src="./Images/Tea3.png" class="Knob_img"><<elseif setup.tealvl is 4>><img src="./Images/Tea4.png" class="Knob_img"><</if>><<if setup.coffeelvl is 0>><img src="./Images/Coffee0.png" class="Knob_img"><<elseif setup.coffeelvl is 1>> <img src="./Images/Coffee1.png" class="Knob_img"><<elseif setup.coffeelvl is 2>><img src="./Images/Coffee2.png" class="Knob_img"><<elseif setup.coffeelvl is 3>><img src="./Images/Coffee3.png" class="Knob_img"><<elseif setup.coffeelvl is 4>><img src="./Images/Coffee4.png" class="Knob_img"><</if>><<link [img[./Images/Button.png][On with the story]]>><<goto "EndManager">><</link>></div> 
+<div class="C1"><<if setup.coffeelvl is 0>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_0_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_0_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_0_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_0_3.png" class="Char_img"> 
+<<elseif setup.tealvl is 4>> 
+<img src="./Images/Char_Rockstar_0_4.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 1>> 
+<<if setup.tealvl is 0>> 
+<img src="./Images/Char_Rockstar_1_0.png" class="Char_img"> 
+<<elseif setup.tealvl is 1>> 
+<img src="./Images/Char_Rockstar_1_1.png" class="Char_img"> 
+<<elseif setup.tealvl is 2>> 
+<img src="./Images/Char_Rockstar_1_2.png" class="Char_img"> 
+<<elseif setup.tealvl is 3>> 
+<img src="./Images/Char_Rockstar_1_3.png" class="Char_img"> 
+<</if>> 
+<<elseif setup.coffeelvl is 2>>

@@ -1,0 +1,243 @@
+[<div class="textOpt"> 
+Ma loge d'artiste est dans son état de désordre habituel. Tous les autres membres du groupe sont parties visiter la ville excepté Garry qui joue avec des batteries invisibles probablement après une nuit blanche. Allongée à côté de lui est assise une jeune adulte punch au fruit qui joue à Human Crush sur son smartphone d'un air un peu ennuyé. 
+Je vois qu'elle a poussé mes sweatpants de voyage à terre avant de s'étendre. 
+&lt;<if is="" setup.havefakearm="" true="">&gt; 
+J'ai sur mon bureau le bras glaço-mécanique Wondasahi du vieux vin... 
+C'est un nouveau bas pour moi je crois. 
+[["Extraire le fragment de café du bras"|Arm_Extract][$sec = setup.seconds]] 
+&lt;</if>&gt;&lt;<if is="" setup.focus="">&gt; 
+Dans le coin se trouve le coffre contenant les paroles de ma première chanson, je ne l'ai pas ouvert depuis des années et je l'apporte avec moi simplement par habitude. J'ai même oublié la combinaison à trois chiffres. 
+&lt;</if>&gt; 
+Sur le babillard se trouve quatre photos 
+[["Observer Photo 1"|Loge_Photo1][$sec = setup.seconds]] 
+[["Observer Photo 2"|Loge_Photo2][$sec = setup.seconds]] 
+[["Observer Photo 3"|Loge_Photo3][$sec = setup.seconds]] 
+[["Observer Photo 4"|Loge_Photo4][$sec = setup.seconds]] 
+&lt;<if false="" is="" setup.firstsongunlock="">&gt; 
+[["Essayer d'ouvrir coffre"|Loge_CoffreEvent][$sec = setup.seconds]]&lt;</if>&gt;&lt;<if false="" is="" setup.gottenboost="">&gt; 
+[["Regarder dans les poches du pantalon"|Pants_1][$sec = setup.seconds]] 
+&lt;</if>&gt; 
+[["Parler à Garry"|Loge d'artiste_Garry][$sec = setup.seconds]] 
+[["Parler à la jeune punch au fruit"|Loge d'artiste_Punch][$sec = setup.seconds]] [["Aller dans la salle de concert"|Salle de Concert][$sec = setup.seconds]] 
+</div>, <div class="textOpt"> 
+Je m'approche de Garry, ce dernier continue de jouer de la batterie sans me regarder. &lt;<if false="" is="" setup.firstsongunlock="">&gt; 
+[["Rappelle-moi le code du coffre."|Loge d'artiste_Garry_CoffreHelp][$sec = setup.seconds]] &lt;</if>&gt;&lt;<if is="" setup.garrydialogue="">&gt; 
+[["Donc peux-tu m'aider?"|Loge d'artiste_Garry_NeedHelp1][$sec = setup.seconds]] &lt;</if>&gt;&lt;<if is="" setup.garrydialogue="">&gt; 
+[["J'ai besoin de ton aide"|Loge d'artiste_Garry_NeedHelp2][$sec = setup.seconds]] &lt;</if>&gt;&lt;<if is="" setup.garrydialogue="">&gt; 
+[["J'ai vraiment besoin de ton aide."|Loge d'artiste_Garry_NeedHelp3][$sec = setup.seconds]] &lt;</if>&gt; 
+[["Ne pas lui parler"|Loge d'artiste][$sec = setup.seconds]] 
+</div>, <div class="textOpt"> 
+Je m'approche de la jeune punch au fruit. Elle est au milieu d'une scéance de Human Crush où elle fait d'étranges combinaisons de figures roses et brunes sur son cell. 
+&lt;<if is="" setup.punchgirl_sandyinfo="">&gt; 
+[["Elle est où ton amie?"|Punch_SandyAmi1][$sec = setup.seconds]] 
+&lt;</if>&gt;&lt;<if is="" setup.punchgirl_sandyinfo="">&gt; 
+[["Rappelle-moi elle est où ton amie?"|SandyPunch_Am21][$sec = setup.seconds]] &lt;</if>&gt;&lt;<if is="" setup.punchgirl="">&gt; 
+[["Tu es une amie de Garry?"|Punch_Ami1][$sec = setup.seconds]] 
+&lt;</if>&gt;&lt;<if is="" setup.punchgirl="">&gt; 
+[["Alors tu fais quoi encore ici?"|Punch_Ami2][$sec = setup.seconds]] 
+&lt;</if>&gt;&lt;<if false="" is="" setup.punchgirlinfo="">&gt; 
+[["Qu'est-ce que tu peux me dire sur Sodapolis?"|Punch_InfoSoda][$sec = setup.seconds]] &lt;</if>&gt;&lt;<if is="" setup.punchgirlinfo="" true="">&gt; 
+[["Qu'est-ce que tu disais sur Sodapolis déjà?"|Punch_RepeatInfoSoda][$sec = setup.seconds]] &lt;</if>&gt; 
+[["Ne pas lui parler"|Loge d'artiste][$sec = setup.seconds]] 
+</div>, <div class="textOpt"> 
+&lt;<if is="" setup.hommemaletteconcertready="" true="">&gt; 
+&lt;<if false="" is="" setup.hommealamaletteconcertend="">&gt; 
+&lt;<set setup.c2="" to="">&gt; 
+Le gin à la malette fait jouer une pièce de 25 cents dans la paume de sa main. Lorsqu'il me voit, il me pointe une guitare sur l'estrade. 
+Moi: C'est bien beau mais j'ai quoi en échange? 
+Le gin ne répond pas et pointe à nouveau l'estrade. 
+[["Aller sur l'estrade"|ConcertStart][$sec = setup.seconds]] 
+&lt;</set></if>&gt; 
+&lt;</if>&gt; 
+[["Aller au lobby principal"|LobbyPrincipal][$sec = setup.seconds]] 
+[["Aller au loge d'artiste"|Loge d'artiste][$sec = setup.seconds]] 
+</div>, <div class="textOpt"> 
+Le lobby est étrangement peu peuplé malgré l'importance du centre. Une mère et un enfant jus de tomate achètent un ballon et un groupe d'adolescents Soda magasinent. 
+&lt;<if false="" is="" setup.hommealamaletteend="">&gt; 
+Au bout du couloir se tient aussi un gin portant une valise. 
+[["Aller vers le Gin à la malette"|Homme_Mallette_1][$sec = setup.seconds]] 
+&lt;</if>&gt; 
+[["Aller dans la salle de concert"|Salle de Concert][$sec = setup.seconds]] 
+[["Aller au bar"|Bar][$sec = setup.seconds]] 
+[["Aller au musée"|Musée][$sec = setup.seconds]] 
+[["Aller aux arcades"|Arcades][$sec = setup.seconds]] 
+</div>, <div class="textOpt"> 
+Je rentre dans le musée. Un garde est là, défendant fiévreusement les artifacts contre une foule qui n'existe pas. 
+&lt;<if false="" is="" setup.museefragmenttaken="">&gt; 
+&lt;<set setup.museefragmentinfo="" to="" true="">&gt; 
+Au milieu du musée se trouve un fragment de café derrière une vitre. Celui-ci est dans une salle isolée fermée au public. 
+&lt;<if false="" is="" setup.museeuniforme="">&gt; 
+[["Aller dans la salle au fragment"|Musee_FragmentRoom_fail][$sec = setup.seconds]] &lt;</if>&gt;&lt;<if is="" setup.museeuniforme="" true="">&gt; 
+[["Aller dans la salle au fragment"|Musee_FragmentRoom_succed][$sec = setup.seconds]] &lt;</if>&gt; 
+&lt;</set></if>&gt; 
+[["Aller au lobby principal"|LobbyPrincipal][$sec = setup.seconds]]
+</div>, <div class="textOpt"> 
+Je rentre dans la salle d'arcade et regarde les enfants tirer des cantaloupes et des melons d'eau. Je fais de mon mieux pour éviter de désaprouver ce niveau de violence extrême. 
+&lt;<if false="" is="" setup.arcadefalsearm="">&gt; 
+En plein milieu de la salle, je vois un vieux vin rouge jouer à Dance Dance. Je suis étonné de le voire faire la split dans un jeu qui ne le requiert pas. Il a tout de même l'air un peu débalancé avec son faux bras glaço-mécanique. 
+[["Parler au vin"|Arcades_Vin1][$sec = setup.seconds]] 
+&lt;</if>&gt;&lt;<if false="" is="" setup.arcadethiefleft="">&gt; 
+Au fond de la salle se trouve un Disaronno qui joue avec sa longue moustache. Il possède un badge sur sa poitrine sur lequel il est écrit VOLEUR .
+[["Parler au voleur"|Arcades_Voleur1][$sec = setup.seconds]] &lt;</if>&gt; 
+[["Aller au lobby principal"|LobbyPrincipal][$sec = setup.seconds]] </div>, <div class="textOpt"> 
+Je rentre dans le bar. Une foule de gens dégustent du fromage et des noix qui se trouvent à l'intérieur de leurs verres. 
+La bartender n'a plus rien à faire et regarde le match de Baseball entre les Red Sauce de Salcinaty et les Blue grape de Wineipeg. 
+&lt;<if false="" is="" setup.sandyeventover="">&gt; 
+Au fond du bar, il y a une jeune demoiselle jus d'orange qui observe tristement une bague contenant au bout un fragment de café.
+&lt;</if>&gt;&lt;<if false="" is="" setup.sandyeventover="">&gt; 
+&lt;<if is="" setup.sandystate="">&gt; 
+[["Parler à la jeune jus d'orange"|Bar_CindyIntro][$sec = setup.seconds]] &lt;</if>&gt;&lt;<if is="" setup.sandystate="">&gt; 
+[["Parler à la jeune jus d'orange"|Bar_CindyIntro2_neutral][$sec = setup.seconds]] &lt;</if>&gt;&lt;<if is="" setup.sandystate="">&gt; 
+[["Parler à la jeune jus d'orange"|Bar_CindyIntro4_neutral][$sec = setup.seconds]] &lt;</if>&gt;&lt;<if is="" setup.sandystate="">&gt; 
+[["Parler à la jeune jus d'orange"|Bar_CindyIntro][$sec = setup.seconds]] &lt;</if>&gt;&lt;<if is="" setup.sandystate="">&gt; 
+[["Parler à la jeune jus d'orange"|Bar_CindyIntro][$sec = setup.seconds]] &lt;</if>&gt;&lt;</if>&gt; 
+[["Parler à la barmaid"|Bar_Barman][$sec = setup.seconds]] 
+[["Aller au lobby principal"|LobbyPrincipal][$sec = setup.seconds]] </div>, <div class="textOpt"> 
+Garry me regarde d'un air vitreux. 
+<p style="color:rgb(255, 0, 0)">Café Garry: Tout va bien, ne t'inquiète pas. La vie n'est qu'une illusion.</p> 
+&lt;<if false="" is="" setup.firstsongunlock="">&gt; 
+[["Rappelle-moi le code du coffre."|Loge d'artiste_Garry_CoffreHelp][$sec = setup.seconds]] &lt;</if>&gt;&lt;<if is="" setup.garrydialogue="">&gt; 
+[["J'ai besoin de ton aide"|Loge d'artiste_Garry_NeedHelp2][$sec = setup.seconds]] &lt;</if>&gt;. 
+&lt;<if is="" setup.garrydialogue="">&gt; 
+[["J'ai vraiment besoin de ton aide."|Loge d'artiste_Garry_NeedHelp3][$sec = setup.seconds]] &lt;</if>&gt; 
+[["Ok oublie ça"|Loge d'artiste][$sec = setup.seconds]] 
+</div>, <div class="textOpt"> 
+Garry me regarde d'un air vitreux. 
+<p style="color:rgb(255, 0, 0)">Café Garry: Tout va bien. La vie est en harmonie avec elle même. Ne sens-tu pas le vent soulever le sable?</p><p style="color:rgb(235, 235, 235)">Moi: Le sable?</p><p style="color:rgb(255, 0, 0)">Café Garry: Cherches. Vas chercher le sable intérieur.</p> &lt;<if false="" is="" setup.firstsongunlock="">&gt; 
+[["Rappelle-moi le code du coffre."|Loge d'artiste_Garry_CoffreHelp][$sec = setup.seconds]] &lt;</if>&gt;&lt;<if is="" setup.garrydialogue="">&gt; 
+[["J'ai vraiment besoin de ton aide."|Loge d'artiste_Garry_NeedHelp3][$sec = setup.seconds]] &lt;</if>&gt; 
+[["Ok oublie ça"|Loge d'artiste][$sec = setup.seconds]] 
+</div>, <div class="textOpt"> 
+Garry me regarde d'un air vitreux. 
+<p style="color:rgb(255, 0, 0)">Café Garry: Ce n'est qu'une illusion. La vie n'est qu'une illusion.</p> <p style="color:rgb(235, 235, 235)">Moi: Tu peux m'aider ou pas?</p><p style="color:rgb(255, 0, 0)">Café Garry: Seul toi tu peux t'aider. Va voir l'homme à la valise au Lobby, il saura te montrer la voie. </p> &lt;<set setup.garytalked="" to="" true="">&gt; 
+&lt;<if false="" is="" setup.firstsongunlock="">&gt; 
+[["Rappelle-moi le code du coffre."|Loge d'artiste_Garry_CoffreHelp][$sec = setup.seconds]] &lt;</if>&gt; 
+[["Ok je vais essayer ça"|Loge d'artiste][$sec = setup.seconds]] 
+</set></div>, <div class="textOpt">
+<p style="color:rgb(242, 51, 25)">Punch: Ami est un grand mot.</p><p style="color:rgb(235, 235, 235)">Moi: Connaissance?</p><p style="color:rgb(242, 51, 25)">Punch : Je dirais.. que ça aussi est un grand mot.</p><p style="color:rgb(235, 235, 235)">Moi: Alors quel serait le mot?</p><p style="color:rgb(242, 51, 25)">Punch: Je sais pas trop, on s'est rencontré dans une partie de dongeon et dragon organisée par un ami jus de tomate et il m'a invité et il a passé la soirée allongé à fixer le plafond, je sais même pas s'il sait que je suis là. Attends laisse moi vérifier. Gary Hello!</p><p style="color:rgb(255, 0, 0)">Garry se retourne et me regarde un instant.</p><p style="color:rgb(255, 0, 0)">Garry: Hey à qui tu parles mec?</p>La jeune punch prend un air exaspéré et se replonge dans Human Crush. 
+&lt;<if is="" setup.punchgirl="">&gt; 
+&lt;<if false="" is="" setup.seingsandy="">&gt; 
+[["Alors tu fais quoi encore ici?"|Punch_Ami2][$sec = setup.seconds]] 
+&lt;</if>&gt;&lt;<if is="" setup.seingsandy="" true="">&gt; 
+[["Alors tu fais quoi encore ici?"|Punch_SandySawAmi2][$sec = setup.seconds]] 
+&lt;</if>&gt; 
+&lt;</if>&gt;&lt;<if is="" setup.punchgirl_sandyinfo="">&gt; 
+[["Elle est où ton amie?"|Punch_SandyAmi1][$sec = setup.seconds]] 
+&lt;</if>&gt;&lt;<if is="" setup.punchgirl_sandyinfo="">&gt; 
+[["Elle est où déjà ton amie?"|SandyPunch_Am21][$sec = setup.seconds]] 
+&lt;</if>&gt;&lt;<if false="" is="" setup.punchgirlinfo="">&gt; 
+[["Qu'est-ce que tu peux me dire sur Sodapolis?"|Punch_InfoSoda][$sec = setup.seconds]] &lt;</if>&gt;&lt;<if is="" setup.punchgirlinfo="" true="">&gt; 
+[["Qu'est-ce que tu disais sur Sodapolis déjà?"|Punch_RepeatInfoSoda][$sec = setup.seconds]] &lt;</if>&gt; 
+[["Bon je te laisse à Human Crush"|Loge d'artiste][$sec = setup.seconds]] 
+</div>, <div class="textOpt"> 
+&lt;<set setup.museefragmentinfo="" to="" true="">&gt; 
+<p style="color:rgb(242, 51, 25)">Punch: Disons, il y a la plus grande communauté de gens eau dans une petite ville isolée à quelques dizaines kilomètres d'ici, sinon on a le musée de brevages contemporains pas très loin d'ici. Ah et on a un musée où il y a un paquet de truc vieux étranges du genre le premier fragment de café qui a poussé à Sodapolis.</p><p style="color:rgb(235, 235, 235)">Moi: Ah ouais où ça? </p><p style="color:rgb(242, 51, 25)">Punch: Tu prends l'avion, tu va traverser l'océan et puis tu fais demi tour tu atterris à Sodapolis, tu reviens ici, tu sors de la salle de spectacle et c'est à ta gauche.</p> 
+&lt;<if is="" setup.punchgirl_sandyinfo="">&gt; 
+[["Elle est où ton amie?"|Punch_SandyAmi1][$sec = setup.seconds]] 
+&lt;</if>&gt;&lt;<if is="" setup.punchgirl_sandyinfo="">&gt; 
+[["Rappelle-moi elle est où ton amie?"|SandyPunch_Am21][$sec = setup.seconds]] &lt;</if>&gt;&lt;<if is="" setup.punchgirl="">&gt; 
+[["Tu es une amie de Garry?"|Punch_Ami1][$sec = setup.seconds]] 
+&lt;</if>&gt;&lt;<if is="" setup.punchgirl="">&gt; 
+[["Alors tu fais quoi encore ici?"|Punch_Ami2][$sec = setup.seconds]] 
+&lt;</if>&gt; 
+[["Bon je te laisse à Human Crush"|Loge d'artiste][$sec = setup.seconds]]
+</set></div>, <div class="textOpt"> 
+La jeune fille punch soupir un instant 
+<p style="color:rgb(242, 51, 25)">Punch: Bon écoute attentivement, il y a la plus grande communauté de gens eau dans une petite ville isolée à quelques dizaines kilomètres d'ici, sinon on a le musée de brevages contemporains pas très loin d'ici. Ah et on a un musée où il y a un paquet de truc vieux étranges du genre le premier fragment de café qui a poussé à Sodapolis.</p><p style="color:rgb(235, 235, 235)">Moi: Ah ouais où ça?</p><p style="color:rgb(242, 51, 25)">Punch: Tu prends l'avion, tu va traverser l'océan et puis tu fais demi tour tu atterris à Sodapolis, tu reviens ici, tu sors de la salle de spectacle et c'est à ta gauche.</p> &lt;<if is="" setup.punchgirl_sandyinfo="">&gt; 
+[["Elle est où ton amie?"|Punch_SandyAmi1][$sec = setup.seconds]] 
+&lt;</if>&gt;&lt;<if is="" setup.punchgirl_sandyinfo="">&gt;
+[["Rappelle-moi elle est où ton amie?"|SandyPunch_Am21][$sec = setup.seconds]] &lt;</if>&gt;&lt;<if is="" setup.punchgirl="">&gt; 
+[["Tu es une amie de Garry?"|Punch_Ami1][$sec = setup.seconds]] &lt;</if>&gt;&lt;<if is="" setup.punchgirl="">&gt; 
+[["Alors tu fais quoi encore ici?"|Punch_Ami2][$sec = setup.seconds]] &lt;</if>&gt; 
+[["Bon je te laisse à Human Crush"|Loge d'artiste][$sec = setup.seconds]] </div>, <div class="textOpt">
+<p style="color:rgb(242, 51, 25)">Punch: Je sais pas, Garry a toujours été mon membre du groupe préféré et je suppose je vis le rêve, ou je m'ajuste à la réalité, un des deux.</p><p style="color:rgb(235, 235,
+235)">Moi: Tu trouves vraiment que Garry est le meilleur membre du groupe?</p><p style="color:rgb(242, 51, 25)">Punch : T'aurais préféré que je dise que c'est toi?</p><p style="color:rgb(235, 235, 235)">Moi: Ouais.. j'imagine?</p><p style="color:rgb(242, 51, 25)">Punch: Si ça peut te consoler, c'est le cas d'une de mes amies. Elle a même acheté une stupide bague avec un fragment de café, probablement pour se sentir plus qu'elle a une espèce de connection avec ton groupe ou je sais pas.</p> &lt;<if is="" setup.punchgirl_sandyinfo="">&gt; 
+[["Elle est où ton amie?"|Punch_SandyAmi1][$sec = setup.seconds]] 
+&lt;</if>&gt;&lt;<if is="" setup.punchgirl_sandyinfo="">&gt; 
+[["Rappelle-moi elle est où ton amie?"|SandyPunch_Am21][$sec = setup.seconds]] 
+&lt;</if>&gt;&lt;<if false="" is="" setup.punchgirlinfo="">&gt; 
+[["Qu'est-ce que tu peux me dire sur Sodapolis?"|Punch_InfoSoda][$sec = setup.seconds]] &lt;</if>&gt;&lt;<if is="" setup.punchgirlinfo="" true="">&gt; 
+[["Qu'est-ce que tu disais sur Sodapolis déjà?"|Punch_RepeatInfoSoda][$sec = setup.seconds]] &lt;</if>&gt; 
+[["Bon je te laisse à Human Crush"|Loge d'artiste][$sec = setup.seconds]] 
+</div>, <div class="textOpt">
+<p style="color:rgb(242, 51, 25)">Punch: Sandy pourquoi?</p><p style="color:rgb(235, 235, 235)">Moi: J'avais pensé lui offrir un autographe.</p><p style="color:rgb(242, 51, 25)">Punch: Elle est au bar, tu as un si grand coeur?</p><p style="color:rgb(235, 235, 235)">Moi : Oui quelque chose du genre</p> &lt;<if is="" setup.punchgirl_sandyinfo="">&gt; 
+[["Rappelle-moi elle est où ton amie?"|SandyPunch_Am21][$sec = setup.seconds]] &lt;</if>&gt;&lt;<if false="" is="" setup.punchgirlinfo="">&gt; 
+[["Qu'est-ce que tu peux me dire sur Sodapolis?"|Punch_InfoSoda][$sec = setup.seconds]] &lt;</if>&gt;&lt;<if is="" setup.punchgirlinfo="" true="">&gt; 
+[["Qu'est-ce que tu disais sur Sodapolis déjà?"|Punch_RepeatInfoSoda][$sec = setup.seconds]] &lt;</if>&gt; 
+[["Bon je te laisse à Human Crush"|Loge d'artiste][$sec = setup.seconds]] 
+</div>, <div class="textOpt">
+<p style="color:rgb(242, 51, 25)">Punch: Sandy.</p><p style="color:rgb(235, 235, 235)">Moi:Sandy?</p><p style="color:rgb(242, 51, 25)">Punch: Oui Sandy va la voir au bar si tu tiens tant à lui parler, je pense que c'est moi qui ait besoin d'un verre .</p> 
+&lt;<if is="" setup.punchgirl_sandyinfo="">&gt; 
+[["Rappelle-moi, comment elle s'appelle ton amie?"|SandyPunch_Am21][$sec = setup.seconds]] &lt;</if>&gt;&lt;<if false="" is="" setup.punchgirlinfo="">&gt; 
+[["Qu'est-ce que tu peux me dire sur Sodapolis?"|Punch_InfoSoda][$sec = setup.seconds]] &lt;</if>&gt;&lt;<if is="" setup.punchgirlinfo="" true="">&gt; 
+[["Qu'est-ce que tu disais sur Sodapolis déjà?"|Punch_RepeatInfoSoda][$sec = setup.seconds]] &lt;</if>&gt; 
+[["Bon je te laisse à Human Crush"|Loge d'artiste][$sec = setup.seconds]] 
+</div>, <div class="textOpt">
+<p style="color:rgb(242, 51, 25)">Punch: Je sais pas, Garry a toujours été mon membre du groupe préféré et je suppose je vis le rêve, ou je m'ajuste à la réalité, un des deux.</p><p style="color:rgb(235, 235, 235)">Moi: Tu trouves vraiment que Garry est le meilleur membre du groupe?</p><p style="color:rgb(242, 51, 25)">Punch : T'aurais préféré que je dise que c'est toi?</p><p style="color:rgb(235, 235, 235)">Moi: Ouais.. j'imagine?</p><p style="color:rgb(242, 51, 25)">Punch: Si ça peut te consoler, c'est le cas d'une de mes amis. Elle a même acheté une stupide bague avec un fragment de café, probablement pour se sentir plus proche de toi ou je sais pas.</p><p style="color:rgb(235, 235, 235)">Moi: Ahh euhhh ouais il y a des gens comme ça je présume.</p><p style="color:rgb(242, 51, 25)">Punch: Attends de la voir et tu verra.</p><p style="color:rgb(235, 235, 235)">Moi: Exact j'attends... parce que je l'ai jamais vu.</p> &lt;<if is="" setup.punchgirl_sandyinfo="">&gt; 
+[["Elle est où ton amie?"|Punch_SandyAmi1][$sec = setup.seconds]] 
+&lt;</if>&gt;&lt;<if is="" setup.punchgirl_sandyinfo="">&gt; 
+[["Rappelle-moi elle est où ton amie?"|SandyPunch_Am21][$sec = setup.seconds]] 
+&lt;</if>&gt;&lt;<if false="" is="" setup.punchgirlinfo="">&gt; 
+[["Qu'est-ce que tu peux me dire sur Sodapolis?"|Punch_InfoSoda][$sec = setup.seconds]] &lt;</if>&gt;&lt;<if is="" setup.punchgirlinfo="" true="">&gt; 
+[["Qu'est-ce que tu disais sur Sodapolis déjà?"|Punch_RepeatInfoSoda][$sec = setup.seconds]] &lt;</if>&gt; 
+[["Bon je te laisse à Human Crush"|Loge d'artiste][$sec = setup.seconds]] 
+</div>, <div class="textOpt"> 
+Je m'approche de la jeune jus d'orange. Je la regarde dans le vide pour un instant puis jette un coup d'oeil sur le fragment de café qui est sur sa bague. 
+&lt;<if false="" is="" setup.sandyeventover="">&gt; 
+[["Ce bar ne mérite pas une jus d'orange comme toi"|Bar_CindyIntro1_1][$sec = setup.seconds]] &lt;</if>&gt;&lt;<if false="" is="" setup.sandyeventover="">&gt; 
+[["Cette place est libre?"|Bar_CindyIntro1_2][$sec = setup.seconds]] 
+&lt;</if>&gt;&lt;<if false="" is="" setup.sandyeventover="">&gt; 
+[["Qu'est-ce qui vous emmène à Sodapolis?"|Bar_CindyIntro1_3][$sec = setup.seconds]] &lt;</if>&gt; 
+[["Je dois retourner au bar, je reviens"|Bar][$sec = setup.seconds]] 
+</div>, <div class="textOpt"> 
+La bartender est seule et fait et défait une série de drinks à base d'amandes. &lt;<if false="" is="" setup.boissonvege="">&gt; 
+[["Vous avez quoi à boire ici?"|Bar_Vege][$sec = setup.seconds]] 
+&lt;</if>&gt; 
+[["Tu peux me dire quoi sur la fille dans le fond?"|Bar_InfoSandy][$sec = setup.seconds]] [["Je vous laisse travailler"|Bar][$sec = setup.seconds]] 
+</div>, <div class="textOpt"> 
+Je m'approche et relève mes lunettes de soleil pour révéler mon identité. Elle me regarde avec un sourire débordant. 
+<p style="color:rgb(242, 101, 34)">Jeune Jus d'Orange: (rigole) : C'est flatteur, et que fait un café comme vous dans une city comme celle-ci.</p><p style="color:rgb(235, 235, 235)">Moi: Tu n'avais pas une petite idée?</p><p style="color:rgb(242, 101, 34)">Jeune Jus d'Orange: Plus qu'une petite idée. Au fait je m'appelle...</p><p style="color:rgb(235, 235, 235)">Moi: Chut! Attends laisse-moi deviner.</p> &lt;<if false="" is="" setup.sandyeventover="">&gt; 
+[["Sandy"|Bar_CindyIntro2_right][$sec = setup.seconds]] 
+&lt;</if>&gt;&lt;<if false="" is="" setup.sandyeventover="">&gt; 
+[["Brigite"|Bar_CindyIntro2_wrong][$sec = setup.seconds]] 
+&lt;</if>&gt;&lt;<if false="" is="" setup.sandyeventover="">&gt; 
+[["Windy "|Bar_CindyIntro2_wrong][$sec = setup.seconds]] 
+&lt;</if>&gt; 
+[["Je dois retourner au bar, je reviens"|Bar][$sec = setup.seconds]] 
+</div>, <div class="textOpt"> 
+Je m'approche et relève mes lunettes de soleil pour révéler mon identité. Elle me regarde avec un sourire débordant. 
+<p style="color:rgb(242, 101, 34)">Jeune Jus d'Orange: (rigole) : Elle est très en demande je dois admettre mais j'imagine je pourrais vous laisser la prendre.</p><p style="color:rgb(235, 235, 235)">Moi: Quel honneur, je m'appelle Phill Tannin au fait. Je dis en sortant mon plus beau sourire.</p><p style="color:rgb(235, 235, 235)">Moi: Tu as peut-être entendu mon nom quelque part</p><p style="color:rgb(242, 101, 34)">Jeune Jus d'Orange: Quelque part oui, mais je ne veux pas briser votre effet de surprise. </p><p style="color:rgb(235, 235, 235)">Moi: Alors faisons comme si c'était la première fois. </p><p style="color:rgb(242, 101, 34)">Jeune Jus d'Orange: Je m'appelle..</p><p style="color:rgb(235, 235, 235)">Moi: laisse-moi l'honneur de deviner, j'ai un talent pour ça.</p> &lt;<if false="" is="" setup.sandyeventover="">&gt; 
+[["Sandy"|Bar_CindyIntro2_right][$sec = setup.seconds]] 
+&lt;</if>&gt;&lt;<if false="" is="" setup.sandyeventover="">&gt; 
+[["Brigite"|Bar_CindyIntro2_wrong][$sec = setup.seconds]] 
+&lt;</if>&gt;&lt;<if false="" is="" setup.sandyeventover="">&gt; 
+[["Windy "|Bar_CindyIntro2_wrong][$sec = setup.seconds]] 
+&lt;</if>&gt; 
+[["Je dois retourner au bar, je reviens"|Bar][$sec = setup.seconds]] 
+</div>, <div class="textOpt"> 
+Je m'approche et relève mes lunettes de soleil pour révéler mon identité. Elle me regarde avec un sourire débordant. 
+<p style="color:rgb(242, 101, 34)">Jeune Jus d'Orange: (rigole) : Vous principalement.</p><p style="color:rgb(235, 235, 235)">Moi: Intéressant, je m'appelle Phill Tannin au fait. Tu as peut-être entendu mon nom quelque part</p><p style="color:rgb(242, 101, 34)">Jeune Jus d'Orange: Quelque part oui, mais je ne veux pas briser votre effet de surprise. </p><p style="color:rgb(235, 235, 235)">Moi: Alors faisons comme si c'était la première fois. Mais laisse moi deviner ton nom, J'ai un don pour ça, je suis sûre que tu t'appelles...</p> 
+&lt;<if false="" is="" setup.sandyeventover="">&gt; 
+[["Sandy"|Bar_CindyIntro2_right][$sec = setup.seconds]] 
+&lt;</if>&gt;&lt;<if false="" is="" setup.sandyeventover="">&gt; 
+[["Brigite"|Bar_CindyIntro2_wrong][$sec = setup.seconds]] 
+&lt;</if>&gt;&lt;<if false="" is="" setup.sandyeventover="">&gt; 
+[["Windy "|Bar_CindyIntro2_wrong][$sec = setup.seconds]] 
+&lt;</if>&gt; 
+[["Je dois retourner au bar, je reviens"|Bar][$sec = setup.seconds]]
+</div>, <div class="textOpt">
+<p style="color:rgb(242, 101, 34)">Jeune Jus d'Orange: (rigole) : Ouais, mon dieu vous êtes fantastique. </p><p style="color:rgb(235, 235, 235)">Moi: J'y peux rien, je suis débordé de talent. Alors dis-moi as tu un monsieur jus d'orange qui t'attends dans ton coin. </p><p style="color:rgb(242, 101, 34)">Jeune Jus d'Orange: Non je suis tout à fait disponible. </p><p style="color:rgb(235, 235, 235)">Moi: Étonnant. </p><p style="color:rgb(242, 101, 34)">Jeune Jus d'orange: Comment ça?</p> 
+&lt;<if false="" is="" setup.sandyeventover="">&gt; 
+[["Disons je sais que j'ai une soudaine envie d'une dose de vitamine C"|Bar_CindyIntro3_1][$sec = setup.seconds]] 
+&lt;</if>&gt;&lt;<if false="" is="" setup.sandyeventover="">&gt;
+[["Parce que tu es comme un soleil"|Bar_CindyIntro3_2][$sec = setup.seconds]] &lt;</if>&gt;&lt;<if false="" is="" setup.sandyeventover="">&gt; 
+[["Tu sembles comme quelqu'un de bien."|Bar_CindyIntro3_3][$sec = setup.seconds]] &lt;</if>&gt; 
+[["Je dois retourner au bar, je reviens"|Bar][$sec = setup.seconds]] </div>, <div class="textOpt">
+<p style="color:rgb(242, 101, 34)">Jeune Jus d'Orange : C'est exactement... pas ça. Je suis Sandy, mais c'est pas grave.</p><p style="color:rgb(235, 235, 235)">Moi: Pardon, alors dis-moi as-tu un monsieur jus d'orange qui t'attends dans ton coin. </p><p style="color:rgb(242, 101, 34)">Jeune Jus d'Orange: Non je suis tout à fait disponible. </p><p style="color:rgb(235, 235, 235)">Moi: Étonnant.</p><p style="color:rgb(242, 101, 34)">Jeune Jus d'orange: Comment ça?</p>
+&lt;<if false="" is="" setup.sandyeventover="">&gt; 
+[["Disons je sais que j'ai une soudaine envie d'une dose de vitamine C"|Bar_CindyIntro3_1][$sec = setup.seconds]] 
+&lt;</if>&gt;&lt;<if false="" is="" setup.sandyeventover="">&gt; 
+[["Parce que tu es comme un soleil"|Bar_CindyIntro3_2][$sec = setup.seconds]] &lt;</if>&gt;&lt;<if false="" is="" setup.sandyeventover="">&gt; 
+[["Tu sembles comme quelqu'un de bien."|Bar_CindyIntro3_3][$sec = setup.seconds]] &lt;</if>&gt; 
+[["Je dois retourner au bar, je reviens"|Bar][$sec = setup.seconds]] 
+</div>]
